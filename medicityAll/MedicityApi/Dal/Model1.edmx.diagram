@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6c1c129cfae64a2b8819a272da575ba8" Name="Diagram1">
+        <EntityTypeShape EntityType="medicityDBModel.BusinessHour" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.City" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.History" Width="1.5" PointX="8.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.Medical" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.Pharmacy" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.StockPharmacy" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicityDBModel.User" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="medicityDBModel.FK_BusinessHours_Pharmacy" ManuallyRouted="false" />
+        <AssociationConnector Association="medicityDBModel.FK_Pharmacy_City" ManuallyRouted="false" />
+        <AssociationConnector Association="medicityDBModel.FK_History_Medical" ManuallyRouted="false" />
+        <AssociationConnector Association="medicityDBModel.FK_StockPharmacy_StockPharmacy" ManuallyRouted="false" />
+        <AssociationConnector Association="medicityDBModel.FK_StockPharmacy_Pharmacy" ManuallyRouted="false" />
+        <AssociationConnector Association="medicityDBModel.FK_User_Pharmacy" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
