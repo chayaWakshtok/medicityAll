@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      בדיקת מלאי
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <p>בדקו באיזה בית מרקחת נמצאת התרופה שלכם!</p>
+    <hr>
+    <p>הכניסו את שם התרופה</p>
+    <ion-searchbar [(ngModel)]="searchMedical" (ionChange)="search()" placeholder="הכנס שם תרופה"></ion-searchbar>
+
+    <ion-item>
+      <ion-label>מיון לפי</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="search()">
+        <ion-select-option value="1">מיון לפי א"ב</ion-select-option>
+        <ion-select-option value="2">לפי מחיר יחידה מהזול ליקר</ion-select-option>
+        <ion-select-option value="3">לפי מחיר יחידה מהיקר לזול</ion-select-option>
+        <ion-select-option value="4">לפי מחיר אריזה מהזול ליקר</ion-select-option>
+        <ion-select-option value="4">לפי מחיר אריזה מהיקר לזול</ion-select-option>
+        <ion-select-option value="4">קיים בסל הבריאות</ion-select-option>
+        <ion-select-option value="4">לפי צורת מתן התרופה</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list dir="rtl">
+
+      <ion-item button *ngFor="let item of medicines " [routerLink]="['/', 'movies', item.barcodes]">
+        <ion-avatar>
+          <img [src]="'http://data.health.gov.il/drugs/arizot/'+item.images[item.images.length-1].url" *ngIf="item.images.length>0">
+          <img src="../../assets/medicine-search.png" *ngIf="!item.images||item.images.length==0">
+        </ion-avatar>
+        
+
+        <ion-label style="padding-right: 12px;" text-wrap>
+          <h3>{{ item.dragHebName }}</h3>
+        </ion-label>
+
+        <!-- <ion-icon slot="end" *ngIf="item.Type == 'movie'" name="videocam"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type == 'series'" name="tv"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type == 'game'" name="logo-game-controller-b"></ion-icon> -->
+
+      </ion-item>
+
+    </ion-list>
+    <!-- <hr>
+    <p>חפש את בית מרקחת הרצוי</p> -->
+    <!-- <ion-segment value="1">
+      <ion-segment-button value="1">
+        <ion-label>לפי שם</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        <ion-label>לפי ישוב</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="3">
+        <ion-label>קרוב אליי</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+    <!-- <ion-item>
+      <ion-label position="floating">הכנס שם בית מרקחת</ion-label>
+      <ion-input></ion-input>
+    </ion-item> -->
+  </div>
+</ion-content>
