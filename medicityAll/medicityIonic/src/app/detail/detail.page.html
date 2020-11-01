@@ -1,0 +1,278 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title> פרטי תרופה</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="medTitles" *ngIf="medData" style="margin: 3vh;">
+    <div class="right ng-binding">{{medData.dragHebName}}</div>
+    <div class="left eng-text ng-binding">{{medData.dragEnName}}</div>
+  </div>
+
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox?showBox = false:showBox = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/general_Feature_icon.png">
+      <span class="ng-binding">פרטי תכשיר</span>
+      <img class="arrowDown" [ngClass]="{'rotateArrow':showBox == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box" *ngIf="showBox == true" [ngClass]="{'showBox':showBox == true}" style="padding-top:15px">
+      <div ng-if="type == 'general'" class="ng-scope">
+        <div *ngIf="medData.activeMetirals" class="textStyle ng-scope">
+          <div style="direction: rtl;" class="ng-binding">מרכיב פעיל</div>
+          <div>
+            <span *ngFor="let metiral of medData.activeMetirals" class="ng-binding ng-scope">{{metiral.ingredientsDesc}}
+              {{metiral.dosage}} </span>
+          </div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="medData.usageFormHeb">
+          <div class="ng-binding">צורת מתן</div>
+          <div class="ng-binding">{{medData.usageFormHeb}}</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="medData.usageFormEng">
+          <div class="ng-binding">Method of administration</div>
+          <div class="ng-binding">{{medData.usageFormEng}}</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="medData.dosageForm || medData.dosageFormEng">
+          <div class="ng-binding">צורת מינון</div>
+          <div class="ng-binding">{{medData.dosageForm}}
+            <span *ngIf="medData.dosageForm &&medData.dosageFormEng" class="ng-scope">, </span>
+            {{medData.dosageFormEng}}<div><span class="ng-binding">למניעת מינון יתר או הרעלה יש ליטול את התרופה בהתאם
+                למינון המומלץ כפי שמופיע בעלון
+                לצרכן</span></div>
+          </div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">מספר רישום מלא</div>
+          <div style="direction: ltr;" class="ng-binding">{{code}}</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="medData&&medData.regOwnerName.length>0">
+          <div class="ng-binding">בעל רישום</div>
+          <div class="ng-binding">{{medData.regOwnerName}}</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="medData.regManufactureName.length>0">
+          <div class="ng-binding">יצרן</div>
+          <div class="ng-binding">{{medData.regManufactureName}}</div>
+        </div>
+        <div class="textStyle ng-scope" ng-if="regExpDate">
+          <div class="ng-binding">תוקף רישום</div>
+          <div class="ng-binding">12/2022</div>
+        </div>
+        <div ng-if="applicationDate" class="textStyle ng-scope">
+          <div class="title ng-binding">תאריך הגשה</div>
+          <div class="date ng-binding">3/2017</div>
+        </div>
+        <!-- ngIf: medData.applicationType.length>0 -->
+        <div *ngIf="medData.applicationType.length>0" class="textStyle ng-scope">
+          <div class="title ng-binding">מסלול הגשה</div>
+          <div class="date ng-binding">{{medData.applicationType}}</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- 2 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox2?showBox2 = false:showBox2 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/in_basket_icon.png">
+      <span class="ng-binding">התוויה</span>
+      <img class="arrowDown rotateArrow" [ngClass]="{'rotateArrow':showBox2 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div *ngIf="medData" class="box showBox" [ngClass]="{'showBox':showBox2 == true}">
+      <div class="ng-scope">
+        <div class="textStyle">
+          <div class="dragIndication ng-binding" style="width: 100%;padding: 10px;">{{medData.dragIndication}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox3?showBox3 = false:showBox3 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/supplier_Information_icon.png">
+      <span class="ng-binding">אתרי ייצור</span>
+      <img class="arrowDown rotateArrow" [ngClass]="{'rotateArrow':showBox3 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box showBox" [ngClass]="{'showBox':showBox3 == true}">
+
+      <div class="ng-scope">
+        <div class="textStyle ng-scope" *ngIf="medData.regOwnerName.length>0">
+          <div class="ng-binding">בעל רישום</div>
+          <div class="ng-binding">{{medData.regOwnerName}}</div>
+        </div>
+        <div class="divider"></div>
+        <div class="textStyle ng-scope" *ngIf="medData.regManufactureName.length>0">
+          <div class="ng-binding">יצרן</div>
+          <div class="ng-binding">{{medData.regManufactureName}}</div>
+        </div>
+        <div class="divider" [hidden]="medData.manufacturers.length<=0" aria-hidden="false"></div>
+        <div *ngFor="let manu of medData.manufacturers;let i=index" class="ng-scope">
+          <div class="textStyle ng-scope" *ngIf="manu.manufactureName">
+            <div class="ng-binding">שם אתר ייצור</div>
+            <div class="ng-binding">{{manu.manufactureName}}</div>
+          </div>
+          <div class="textStyle ng-scope" *ngIf="manu.manufactureSite">
+            <div class="ng-binding">כתובת אתר ייצור</div>
+            <div class="ng-binding">{{manu.manufactureSite}}</div>
+          </div>
+          <div class="textStyle ng-scope" ng-if="manu.manufactureComments">
+            <div class="ng-binding">פעולות ייצור</div>
+            <div class="ng-binding">{{manu.manufactureComments}} </div>
+          </div>
+          <div class="divider" style="border-top: dashed 1px #64ADA5; background-color: transparent;"
+            [hidden]="i==medData.manufacturers.length-1" [ngClass]="{'last-item':i==medData.manufacturers.length-1}"
+            aria-hidden="false"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox4?showBox4 = false:showBox4 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/package_icon.png">
+      <span class="ng-binding">אריזה וחיי מדף</span>
+      <img class="arrowDown rotateArrow" [ngClass]="{'rotateArrow':showBox4 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box showBox" [ngClass]="{'showBox':showBox4 == true}">
+      <div *ngFor="let pack of medData.packages;let i=index" class="ng-scope">
+        <div class="textStyle ng-scope" *ngIf="pack.unitPrice>0|| pack.packageMaxPrice>0">
+          <div class="ng-binding">מחיר ליחידה</div>
+          <div *ngIf="pack.unitPrice" class="ng-binding ng-scope">{{pack.unitPrice}} ₪</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="pack.packageMaxPrice>0">
+          <div class="ng-binding">מחיר לאריזה</div>
+          <div class="ng-binding">{{pack.packageMaxPrice}} ₪</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="pack.quantity">
+          <div class="ng-binding">כמות לאריזה</div>
+          <div style="direction: ltr ; text-align: right" class="ng-binding">{{pack.quantity}}</div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="pack.barcode">
+          <div class="ng-binding">ברקוד</div>
+          <div class="ng-binding">{{pack.barcode}}</div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">תנאי ניפוק</div>
+          <div *ngIf="pack.isPrescription" class="ng-binding ng-scope">תרופה ללא מרשם</div>
+        </div>
+        <div class="divider" [hidden]="i==medData.packages.length-1"
+          [ngClass]="{'last-item': i==medData.packages.length-1}" aria-hidden="false"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox5?showBox5 = false:showBox5 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/newsletters-icon.png">
+      <span class="ng-binding">עלונים ומידע נוסף</span>
+      <img class="arrowDown" [ngClass]="{'rotateArrow':showBox5 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box" [ngClass]="{'showBox':showBox5 == true}">
+      <div class="ng-scope" *ngIf="medData">
+        <div *ngFor="let alon of medData.brochure" class="textStyle alon-item ng-scope">
+          <div class="alon-title ng-binding" style="width: 36%;">{{alon.display}}</div>
+          <div><a class="alon-link ng-binding" [href]="'https://data.health.gov.il/drugs/alonim/'+alon.url"
+              target="_blank">{{alon.creationDateFormat}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox6?showBox6 = false:showBox6 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/atc.png">
+      <span class="ng-binding">ATC</span>
+      <img class="arrowDown rotateArrow" [ngClass]="{'rotateArrow':showBox6 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box showBox" [ngClass]="{'showBox':showBox6 == true}">
+      <div *ngFor="let atc of medData.atc;let index=index" class="ng-scope">
+        <div class="textStyle ng-scope" *ngIf="atc.atc4Code">
+          <div class="ng-binding">קוד atc4</div>
+          <div class="ng-binding">{{atc.atc4Code}} </div>
+        </div>
+        <div class="textStyle ng-scope" *ngIf="atc.atc4Name">
+          <div class="ng-binding">שם atc4</div>
+          <div class="ng-binding">{{atc.atc4Name}}</div>
+        </div>
+        <div *ngIf="(atc.atc4Code || atc.atc4Name) && (atc.atc5Code || atc.atc5Name)" class="divider"
+          aria-hidden="false"></div>
+        <div class="textStyle ng-scope" ng-if="atc.atc5Code">
+          <div class="ng-binding">קוד atc5</div>
+          <div class="ng-binding">{{atc.atc5Code}}</div>
+        </div>
+        <div class="textStyle ng-scope" ng-if="atc.atc5Name">
+          <div class="ng-binding">שם atc5</div>
+          <div class="ng-binding">{{atc.atc5Name}}</div>
+        </div>
+        <div class="divider ng-hide last-item" [hidden]="index==medData.atc.length-1"
+          [ngClass]="{'last-item': medData.atc.length-1}" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 7 -->
+  <div class="boxStyle" *ngIf="medData">
+    <div class="boxTitle" (click)="showBox7?showBox7 = false:showBox7 = true" role="button" tabindex="0">
+      <img class="boxImgStyle" src="https://data.health.gov.il/drugs/assets/images/drugs/in_basket_icon.png">
+      <span class="ng-binding">פרטי מסגרת הכללה בסל</span>
+      <img class="arrowDown rotateArrow" [ngClass]="{'rotateArrow':showBox7 == true}"
+        src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg">
+    </div>
+    <div class="box showBox" [ngClass]="{'showBox':showBox7 == true}">
+      <div class="ng-scope">
+        <div class="textStyle">
+          <div class="ng-binding">תאריך הכללה מקורי בסל (תאריך החלה)</div>
+          <div class="ng-binding">{{medData.dateOfInclusion}}</div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">הגבלות</div>
+          <div class="ng-binding">{{medData.limitations}} </div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">התוויות הכלולות במסגרת הסל</div>
+          <div></div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">מסגרת הכללה בסל</div>
+          <div class="ng-binding">{{medData.frameworkOfInclusion}}</div>
+        </div>
+        <div class="textStyle" *ngIf="medData.frameworkOfInclusion">
+          <div class="ng-binding">שימוש לפי פנקס קופ''ח כללית 1994</div>
+          <div class="ng-binding"></div>
+        </div>
+        <div class="textStyle">
+          <div class="ng-binding">הגבלות לאריזה</div>
+          <div class="ng-binding">{{medData.packingLimitation}}</div>
+        </div>
+
+        <div class="textStyle">
+          <div class="ng-binding">הערות</div>
+          <div class="ng-binding">{{medData.remarks}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    ייתכן כי חלק מהנתונים במאגר אינם מלאים או אינם מדויקים, לפיכך אינם יכולים לשמש מסמך רשמי.
+    במקרה הצורך ניתן לפנות לאגף הרוקחות או לבעלי הרישום של התכשיר לקבלת מידע רשמי.
+  </div>
+</ion-content>

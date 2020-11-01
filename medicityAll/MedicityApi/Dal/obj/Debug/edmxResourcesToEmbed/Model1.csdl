@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="medicityDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BusinessHour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumDay" Type="Int32" />
+    <Property Name="OpenTime" Type="Time" Precision="7" />
+    <Property Name="CloseTime" Type="Time" Precision="7" />
+    <Property Name="PharmacyId" Type="Int32" />
+    <NavigationProperty Name="Pharmacy" Relationship="Self.FK_BusinessHours_Pharmacy" FromRole="BusinessHours" ToRole="Pharmacy" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pharmacies" Relationship="Self.FK_Pharmacy_City" FromRole="City" ToRole="Pharmacy" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MedicalId" Type="Int32" />
+    <Property Name="Alert" Type="Boolean" />
+    <Property Name="IsSend" Type="Boolean" />
+    <NavigationProperty Name="Medical" Relationship="Self.FK_History_Medical" FromRole="History" ToRole="Medical" />
+  </EntityType>
+  <EntityType Name="Medical">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_History_Medical" FromRole="Medical" ToRole="History" />
+    <NavigationProperty Name="StockPharmacies" Relationship="Self.FK_StockPharmacy_StockPharmacy" FromRole="Medical" ToRole="StockPharmacy" />
+  </EntityType>
+  <EntityType Name="Pharmacy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumHouse" Type="Int32" />
+    <Property Name="Lng" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Lat" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Star" Type="Int32" />
+    <NavigationProperty Name="BusinessHours" Relationship="Self.FK_BusinessHours_Pharmacy" FromRole="Pharmacy" ToRole="BusinessHours" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Pharmacy_City" FromRole="Pharmacy" ToRole="City" />
+    <NavigationProperty Name="StockPharmacies" Relationship="Self.FK_StockPharmacy_Pharmacy" FromRole="Pharmacy" ToRole="StockPharmacy" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Pharmacy" FromRole="Pharmacy" ToRole="User" />
+  </EntityType>
+  <EntityType Name="StockPharmacy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPharmacy" Type="Int32" />
+    <Property Name="IdMedical" Type="Int32" />
+    <Property Name="Quentity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Medical" Relationship="Self.FK_StockPharmacy_StockPharmacy" FromRole="StockPharmacy" ToRole="Medical" />
+    <NavigationProperty Name="Pharmacy" Relationship="Self.FK_StockPharmacy_Pharmacy" FromRole="StockPharmacy" ToRole="Pharmacy" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Telphone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Permision" Type="Int32" />
+    <Property Name="PharmacyId" Type="Int32" />
+    <NavigationProperty Name="Pharmacy" Relationship="Self.FK_User_Pharmacy" FromRole="User" ToRole="Pharmacy" />
+  </EntityType>
+  <Association Name="FK_BusinessHours_Pharmacy">
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="0..1" />
+    <End Role="BusinessHours" Type="Self.BusinessHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pharmacy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessHours">
+        <PropertyRef Name="PharmacyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pharmacy_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pharmacy">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Medical">
+    <End Role="Medical" Type="Self.Medical" Multiplicity="0..1" />
+    <End Role="History" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medical">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="MedicalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockPharmacy_StockPharmacy">
+    <End Role="Medical" Type="Self.Medical" Multiplicity="0..1" />
+    <End Role="StockPharmacy" Type="Self.StockPharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medical">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockPharmacy">
+        <PropertyRef Name="IdMedical" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockPharmacy_Pharmacy">
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="0..1" />
+    <End Role="StockPharmacy" Type="Self.StockPharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pharmacy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockPharmacy">
+        <PropertyRef Name="IdPharmacy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Pharmacy">
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pharmacy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PharmacyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="medicityDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusinessHours" EntityType="Self.BusinessHour" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Histories" EntityType="Self.History" />
+    <EntitySet Name="Medicals" EntityType="Self.Medical" />
+    <EntitySet Name="Pharmacies" EntityType="Self.Pharmacy" />
+    <EntitySet Name="StockPharmacies" EntityType="Self.StockPharmacy" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_BusinessHours_Pharmacy" Association="Self.FK_BusinessHours_Pharmacy">
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+      <End Role="BusinessHours" EntitySet="BusinessHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pharmacy_City" Association="Self.FK_Pharmacy_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Medical" Association="Self.FK_History_Medical">
+      <End Role="Medical" EntitySet="Medicals" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockPharmacy_StockPharmacy" Association="Self.FK_StockPharmacy_StockPharmacy">
+      <End Role="Medical" EntitySet="Medicals" />
+      <End Role="StockPharmacy" EntitySet="StockPharmacies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockPharmacy_Pharmacy" Association="Self.FK_StockPharmacy_Pharmacy">
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+      <End Role="StockPharmacy" EntitySet="StockPharmacies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Pharmacy" Association="Self.FK_User_Pharmacy">
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

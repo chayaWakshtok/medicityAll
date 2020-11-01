@@ -26,6 +26,5243 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @import "~ionic4-auto-complete/auto-complete";
+
 :root {
     direction: rtl;
+    
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0 0 83px 0;
+}
+
+/*.display-wrapper {
+    height: 2500px;
+}*/
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden],
+template {
+    display: none;
+}
+
+a {
+    background: transparent;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+    border: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 1em 40px;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+pre {
+    overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+/*Spinner*/
+.cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    position: fixed;
+}
+
+.spinner {
+    height: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 50px;
+}
+
+.spinner .spinner-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner .spinner-container > div {
+    width: 6px;
+    height: 6px;
+    background-color: #04294f;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-animation: bouncedelay 1.2s infinite ease- in-out;
+    animation: bouncedelay 1.2s infinite ease-in-out; /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner .spinner-container:nth-child(1) {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.spinner .spinner-container:nth-child(1) .circle:nth-child(2) {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .spinner-container:nth-child(1) .circle:nth-child(3) {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+.spinner .spinner-container:nth-child(1) .circle:nth-child(4) {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+.spinner .spinner-container:nth-child(2) {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.spinner .spinner-container:nth-child(2) .circle:nth-child(1) {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .spinner-container:nth-child(2) .circle:nth-child(2) {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.spinner .spinner-container:nth-child(2) .circle:nth-child(3) {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.spinner .spinner-container:nth-child(2) .circle:nth-child(4) {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+.spinner .spinner-container:nth-child(3) {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+}
+
+.spinner .spinner-container:nth-child(3) .circle:nth-child(1) {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+.spinner .spinner-container:nth-child(3) .circle:nth-child(2) {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.spinner .spinner-container:nth-child(3) .circle:nth-child(3) {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+.spinner .spinner-container:nth-child(3) .circle:nth-child(4) {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+.spinner .circle:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.spinner .circle:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+
+.spinner .circle:nth-child(3) {
+    right: 0;
+    bottom: 0;
+}
+
+.spinner .circle:nth-child(4) {
+    left: 0;
+    bottom: 0;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+/*END*/
+.fadein,
+.fadeout {
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.fadein.ng-hide-remove,
+.fadeout.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+@media screen and (max-width: 561px) {
+    body.bootstrap3 {
+        padding-top: 132px !important;
+    }
+    .nav-top {
+        display: none !important;
+    }
+    .submit-form {
+        padding: 0 15px;
+    }
+
+    .medPageDetails .print {
+        display: none !important;
+    }
+
+    div {
+        outline: 0;
+    }
+
+    .iosHeader {
+        padding-top: 20px;
+    }
+
+    .iosHeaderTop {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+    }
+
+    .imgScale {
+        height: 30%;
+        width: 100%;
+    }
+    /*************************************/
+    /**************** Fonts **************/
+    /*************************************/
+    .txtOpenSansLight {
+        font-family: "Open Sans Hebrew Light";
+        font-size: 13px;
+    }
+
+    .txtOpenSansRegular {
+        font-family: "Open Sans Hebrew";
+        font-size: 13px;
+    }
+
+    .txtOpenSansBold {
+        font-family: "Open Sans Hebrew Bold";
+        font-size: 13px;
+    }
+    /*************************************/
+    .grayBg {
+        background: -moz-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #e2e2e2));
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%);
+        background: -o-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%);
+        background: -ms-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%);
+    }
+
+    .blueBtnBg {
+        background: #6fb9e0;
+        background: -moz-linear-gradient(top, #6fb9e0 0, #179ace 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+        background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -ms-linear- gradient(top, #6fb9e0 0%, #179ace 100%);
+    }
+
+    .turquoise-background {
+        background: #0d95bf;
+        background: -moz-linear-gradient(left, #0d95bf 0%, #1b9066 24%, #1b9066 41%, #0e6a77 100%);
+        background: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(0%, #0d95bf),
+            color-stop(24%, #1b9066),
+            color-stop(41%, #1b9066),
+            color-stop(100%, #0e6a77)
+        );
+        background: -webkit-linear-gradient(left, #0d95bf 0%, #1b9066 24%, #1b9066 41%, #0e6a77 100%);
+        background: -o-linear-gradient(left, #0d95bf 0%, #1b9066 24%, #1b9066 41%, #0e6a77 100%);
+        background: -ms-linear-gradient(left, #0d95bf 0%, #1b9066 24%, #1b9066 41%, #0e6a77 100%);
+    }
+    /*************************************/
+    /********** generic transforms *******/
+    /*************************************/
+    .verticalTranslate {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .horizontalTranslate {
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .verticalAlign {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY (-50%);
+    }
+
+    .horizontalAlign {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .centerAlign {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    /*************************************/
+    /************** Header ***************/
+    /*************************************/
+    .overflowYVisibleImportant {
+        overflow-y: visible !important;
+    }
+
+    .header-container {
+        text-align: center;
+        height: 45px;
+    }
+
+    .header-container .img-logo {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/logo_health_dep.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 30%;
+        height: 40px;
+        background-size: 100px 40px;
+        float: right;
+    }
+
+    .header-container .img-logo-sec {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/logo.png");
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        width: 35%;
+        height: 40px;
+        background-size: 110px 33px;
+        margin-right: 10px;
+        float: right;
+    }
+
+    .header-container .button-info {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/cuts/app/info.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 13%;
+        height: 70px;
+        background-size: 17px 17px;
+        float: left;
+    }
+
+    .header-container .button-back {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/cuts/app/page_left.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 13%;
+        height: 40px;
+        background-size: 17px 17px;
+        float: left;
+    }
+    /*************************************/
+    /*************************************/
+    /****** Navigation Sub Header ********/
+    /*************************************/
+    .tabs-container {
+        white-space: nowrap;
+        color: #393939;
+        display: block;
+        width: 100%;
+        margin: 10px 0 20px 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        height: 50px;
+        background: #eeeeee; /* Old browsers */
+        background: -moz-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%); /* FF3.6+ */
+        background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop (0%, #eeeeee),
+            color-stop(100%, #e2e2e2)
+        ); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear- gradient(top, #eeeeee 0%, #e2e2e2 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #eeeeee 0%, #e2e2e2 100%); /* IE10+ */
+    }
+
+    .tabs-container .tabLineHeight {
+        line-height: 50px;
+        height: 100%;
+    }
+
+    .tabs-container .tab-cell {
+        white-space: normal;
+        display: inline-block;
+        width: 25%;
+        height: 100%;
+        line-height: 50px;
+        outline: 0;
+        border-left: 1px solid white;
+        float: right;
+    }
+
+    .tabs-container .tab-cell:first-child .selected-tab {
+        width: 90%;
+        float: left;
+    }
+
+    .tabs-container .tab-cell .selected-tab {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        top: -4px;
+        background-color: #3fa8d5;
+        border-radius: 1px;
+        color: white;
+        box-shadow: -5px 0 14px -3px grey, 5px 0 14px -3px grey;
+    }
+
+    .tabs-container .tab-cell .tabContainer {
+        height: 100%;
+        position: relative;
+    }
+
+    .tabs-container .tab-cell .tabContainer .tab-text {
+        font-family: "Open Sans Hebrew Bold";
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        position: relative;
+        font-size: 17px;
+    }
+
+    .tabs-container .tab-cell .borders {
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+    }
+
+    .tabs-container .tab-cell .img-rect {
+        height: 100%;
+        width: inherit;
+        display: block;
+    }
+
+    .tabs-container .tab-cell .img-rect .rect-pics {
+        display: none;
+    }
+    /*************************************/
+    /*************************************/
+    /************ Quick Search ***********/
+    /*************************************/
+    .search-notice {
+        font-size: 9pt;
+        line-height: 23px;
+    }
+
+    .btn-scroll {
+        height: 315px;
+        overflow-y: scroll;
+    }
+
+    .compareAndSortBarWrap {
+        box-shadow: 0px 9px 34px -18px black;
+        z-index: 2;
+        position: relative;
+    }
+
+    .quick-search-container .search-buttons {
+        padding: 3% 0;
+        text-align: center;
+        width: 100%;
+        bottom: 4%;
+        margin: 0 auto;
+        overflow: scroll;
+    }
+
+    .quick-search-container .search-buttons .search-button {
+        width: 48%;
+        height: 14vh;
+        background-color: #0e5e6f;
+        display: block;
+        margin: 1% 1%;
+        overflow: hidden;
+        padding: 5px 0;
+        float: right;
+    }
+
+    .quick-search-container .search-buttons .search-button .img-rect {
+        padding: 5% 0;
+        height: 65%;
+    }
+
+    .quick-search-container .search-buttons .search-button .img-rect .rect-pics {
+        height: 45px;
+        width: 45px;
+    }
+
+    .quick-search-container .search-buttons .search-button .text-rect {
+        font-family: "Open Sans Hebrew";
+        color: #fff !important;
+        font-size: 1.6rem;
+        margin: auto 3px;
+        line-height: 18px;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    }
+    /*************************************/
+    /*************************************/
+    /************* View-Home *************/
+    /*************************************/
+    .main-view {
+        width: 100%;
+    }
+    /*************************************/
+    /*************************************/
+    /************ View-byDrug ************/
+    /*************************************/
+    .view-by-drug-container {
+        position: relative;
+        z-index: 1;
+        box-shadow: 0px 26px 50px -50px black;
+    }
+
+    .view-by-drug-container .checkbox-container {
+        position: relative;
+        display: inline-block;
+        line-height: 50px;
+        height: 75px;
+    }
+
+    .view-by-drug-container .checkbox-container-by-drug {
+        display: flex;
+        display: -webkit-flex;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+    }
+
+    idr-drop-down-list.dropdownList {
+        display: block;
+    }
+
+    idr-drop-down-list.dropdownList .dropdown {
+        height: 50px;
+    }
+
+    .dropdown-label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    /*************************************/
+    /*************************************/
+    /*********** View-bySymptom **********/
+    /*************************************/
+    .view-by-symptom-container {
+        width: 100%;
+        display: block;
+        position: relative;
+        z-index: 3;
+        box-shadow: 0px 26px 50px -50px #000000;
+    }
+
+    .view-by-symptom-container .label-search-container {
+        width: 100%;
+        height: 15px;
+        margin-bottom: 5px;
+    }
+
+    .view-by-symptom-container .label-search-container .label-search-type {
+        margin-right: 7px;
+        font-family: "Open Sans Hebrew";
+        font-size: 11px;
+    }
+
+    .view-by-symptom-container .drop-downs-container {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .view-by-symptom-container .drop-downs-container .drop-down-container {
+        display: block;
+    }
+
+    .view-by-symptom-container .drop-downs-container .drop-down-container .dropdown {
+        margin-top: 5px;
+    }
+
+    .view-by-symptom-container .drop-downs-container .sub-drop-down {
+        display: inline-block; /* override 'drop-down-container' */
+        width: calc(100% - 54px);
+        height: 50px;
+    }
+
+    .view-by-symptom-container .drop-downs-container .search-button-container {
+        width: 50px;
+        height: 40px;
+        position: relative;
+        bottom: 0px;
+        display: inline-block;
+    }
+
+    .view-by-symptom-container .drop-downs-container .search-button-container .search-button {
+        background: #6fb9e0;
+        background: -moz-linear-gradient(top, #6fb9e0 0, #179ace 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+        background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        color: white;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .view-by-symptom-container .drop-downs-container .search-button-container .search-button .img-search {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/cuts/app/search.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        background-size: 60%;
+    }
+
+    .view-by-symptom-container .checkbox-container {
+        width: 100%;
+        display: flex;
+        display: -webkit-flex;
+        right: 0px;
+        position: relative;
+    }
+    /*************************************/
+    /*************************************/
+    /*********** View-Barcode ************/
+    /*************************************/
+    .view-barcode-container .img-barcode {
+        width: 100%;
+        height: 45vh;
+    }
+
+    .view-barcode-container .img-arrow-container {
+        width: 100%;
+        height: 32px;
+        margin: auto 0;
+    }
+
+    .view-barcode-container .img-arrow-container .img-arrow {
+        background-image: url("https://data.health.gov.il/drugs/assets/images/cuts/app/white_arrow_down.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100%;
+    }
+
+    .view-barcode-container .result-container {
+        width: 100%;
+        background: #ceeaf5; /* Old browsers */
+        background: -moz-linear-gradient(top, #ceeaf5 0%, #d8ede6 32%, #cee3e4 100%); /* FF3.6+ 
+
+*/
+        background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0%, #ceeaf5),
+            color-stop(32%, #d8ede6),
+            color-stop(100%, #cee3e4)
+        ); /* Chrome,Safari4+ */
+        background: -webkit- linear-gradient(top, #ceeaf5 0%, #d8ede6 32%, #cee3e4 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ceeaf5 0%, #d8ede6 32%, #cee3e4 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ceeaf5 0%, #d8ede6 32%, #cee3e4 100%); /* IE10+ */
+    }
+
+    .view-barcode-container .result-container .result-code {
+        text-align: center;
+        padding: 20px 0 10px 0;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .view-barcode-container .result-container .result-label {
+        text-align: center;
+        padding-bottom: 10px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .view-barcode-container .result-container .result-label .result-name {
+        font-weight: normal;
+    }
+
+    .view-barcode-container .result-container .more-data-container {
+        display: table;
+        width: 100%;
+        height: 62px;
+    }
+
+    .view-barcode-container .result-container .more-data-container .more-data-label {
+        display: table-cell;
+        width: 50%;
+        text-align: left;
+        padding-left: 5%;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 62px;
+    }
+
+    .view-barcode-container .result-container .more-data-container .more-data-button-container {
+        display: table-cell;
+        width: 50%;
+        text-align: right;
+        padding-right: 5%;
+    }
+
+    .view-barcode-container .result-container .more-data-container .more-data-button-container .more-data-button {
+        font-family: "Open Sans Hebrew Bold";
+        line-height: 40px;
+        text-align: center;
+        width: 55%;
+        color: white;
+        background: #6fb9e0;
+        background: -moz-linear-gradient(top, #6fb9e0 0, #179ace 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+        background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    }
+
+    .view-barcode-container
+        .result-container
+        .more-data-container
+        .more-data-button-container
+        .more-data-button:active {
+        background: #6fb9e0;
+        background: -moz-linear- gradient(top, #6fb9e0 0, #179ace 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+        background: -webkit-linear-gradient (top, #6fb9e0 0%, #179ace 100%);
+        background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+        background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    }
+    /*************************************/
+    .menuMobile .arrowBack {
+        background: url("https://data.health.gov.il/drugs/assets/images/cuts/app/page_left.png") no-repeat 5% center;
+        width: 27px;
+        height: 26px;
+        zoom: 0.7;
+        display: inline-block;
+        float: left;
+        margin: 7.5% 0 0 5%;
+    }
+
+    .menuMobile .infoExtra {
+        background: url("https://data.health.gov.il/drugs/assets/images/cuts/app/info.png") no-repeat;
+        width: 32px;
+        height: 32px;
+        zoom: 0.7;
+        display: inline-block;
+        float: left;
+        margin: 7% 0 0 5%;
+    }
+
+    .menuMobile .secondary-logo {
+        float: right;
+        min-width: 130px;
+        background-image: url("https://data.health.gov.il/drugs/assets/images/logo_health_dep.png");
+        background-repeat: no-repeat;
+        background-position-x: 5px;
+        background-position-y: 15px;
+        height: inherit;
+        background-size: 115px 45px;
+    }
+
+    .menuMobile .headerContainer .logos .primary-logo {
+        float: right;
+        min-width: 115px;
+        background-position-y: 25px;
+        background-image: url("https://data.health.gov.il/drugs/assets/images/logo.png");
+        background-repeat: no-repeat;
+        background-position-x: 10px;
+        height: inherit;
+        background-size: 95px 30px;
+    }
+
+    .shadowBackground {
+        display: none;
+    }
+
+    .result {
+        background-color: white;
+        border-bottom: 1px solid #c1c1c1;
+        position: relative;
+        height: 75px;
+    }
+
+    .result .topAndBottom .topDetails {
+        font-family: "Open Sans Hebrew Bold";
+        position: absolute;
+        right: 25%;
+        height: 100%;
+        width: 65%;
+        font-size: 13px;
+    }
+
+    .result .topAndBottom .topDetails .secondRowTitle {
+        position: absolute;
+        width: 100%;
+        bottom: 3px;
+        height: 50%;
+        line-height: 37.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .result .topAndBottom .topDetails .firstRowTitle {
+        position: absolute;
+        top: 0;
+        height: 50%;
+        width: 100%;
+        line-height: 37.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .result .priceContainer {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        position: relative;
+    }
+
+    .result .bottomDetails {
+        position: absolute;
+        bottom: 23px;
+        font-size: 9px;
+        right: 2%;
+    }
+
+    .result .price {
+        font-family: "Open Sans Hebrew Bold";
+        position: absolute;
+        width: 20%;
+        right: 2%;
+    }
+
+    .result .showMoreDetails {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .result .inHealthServices {
+        position: absolute;
+        bottom: 5px;
+        right: 2%;
+        padding: 1px 3px;
+        font-size: 10px;
+        color: white;
+    }
+
+    .searchOtherOn {
+        height: 95px !important;
+    }
+
+    .searchOtherOff {
+        height: 30px !important;
+    }
+
+    .pageOn {
+        height: 30px;
+    }
+
+    .paginationDrug {
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        background-color: #414141;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+    }
+
+    .paginationDrug .goBackBtn {
+        position: absolute;
+        left: 0;
+        width: 20px;
+        -webkit-transform: translate(0, -50%);
+        top: 50%;
+    }
+
+    .paginationDrug .goForwardkBtn {
+        position: absolute;
+        right: 0;
+        width: 20px;
+        -webkit-transform: translate(0, -50%);
+        top: 50%;
+    }
+
+    .searchOther.searchOtherNoPagination {
+        bottom: 0px;
+    }
+
+    .searchOther {
+        position: relative;
+        width: 100%;
+        height: 65px;
+        z-index: 1000;
+        color: white;
+    }
+
+    .searchOther .searchButtonImg {
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+        position: absolute;
+        border-radius: 50%;
+        right: 10px;
+        top: 12px;
+    }
+
+    .searchOther .searchButtonImg img {
+        height: 100%;
+        width: 100%;
+        padding: 20%;
+    }
+
+    .searchOther .searchOtherBar {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .searchOther .searchOtherText {
+        position: absolute;
+        font-style: italic;
+        font-size: 16px;
+        width: calc(100% - 112px);
+        padding: 5px;
+        right: 70px;
+        top: 3px;
+        text-align: right;
+    }
+
+    .searchOther .hideSearchOther {
+        position: absolute;
+        left: 0;
+        width: 40px;
+        height: 100%;
+        font-size: 16px;
+        line-height: 32px;
+    }
+
+    search-list {
+        height: 100%;
+    }
+
+    .main-bg {
+        height: 316px;
+        overflow-y: scroll;
+    }
+
+    .search_wrap {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .medPageDetails {
+        height: 316px;
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .medPageDetails .medBody {
+        width: 95%;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .medPageDetails .medBody .spacer {
+        height: 80px;
+    }
+
+    .medPageDetails .medBody .twoLine {
+        width: 100%;
+        margin-top: 20px;
+        min-height: 250px;
+        display: block;
+    }
+
+    .medPageDetails .medBody .twoLine .boxStyle {
+        width: 100%;
+        display: block;
+        vertical-align: top;
+        margin-top: 0;
+    }
+
+    .medPageDetails .medBody .twoLine .boxStyle .showBox {
+        height: auto;
+    }
+
+    .medPageDetails .medBody .twoLine .youtube {
+        display: block;
+        margin-top: 20px;
+        width: 100%;
+        height: 250px;
+        background-color: white;
+        position: relative;
+        float: none;
+    }
+
+    .medPageDetails .medBody .twoLine .youtube iframe {
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        left: 50%;
+        margin-left: -45%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        box-shadow: 0 12px 14px -10px #5e5e5e;
+    }
+
+    .medPageDetails .medBody .boxList {
+        margin-top: 20px;
+    }
+
+    .medPageDetails .medBody .boxList .boxStyle {
+        margin-top: 3px;
+    }
+
+    .medPageDetails .breadCrumb {
+        color: white;
+        font-size: 16px;
+        padding: 20px 0;
+    }
+
+    .medPageDetails .breadCrumb > .constSpan {
+        text-decoration: underline;
+    }
+
+    .medPageDetails .medTitles {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .medPageDetails .medTitles > div:first-child {
+        font-family: "Open Sans Hebrew Bold";
+        font-size: 28px;
+    }
+
+    .medPageDetails .medTitles > div:last-child {
+        font-size: 18px;
+    }
+
+    .medPageDetails .mainBoxMed {
+        width: 100%;
+        height: auto;
+        background-color: white;
+        margin-top: 10px;
+        min-height: 0px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .medPageDetails .mainBoxMed .medText {
+        width: 100%;
+        text-align: right;
+        height: 100%;
+        padding: 15px;
+    }
+
+    .medPageDetails .mainBoxMed .medText > div {
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+    }
+
+    .medPageDetails .mainBoxMed .medText .brochureDownload {
+        font-family: "Open Sans Hebrew Bold";
+        width: 15%;
+        margin-left: 0;
+        display: inline-block;
+    }
+
+    .medPageDetails .mainBoxMed .medText .catBtns {
+        display: inline-block;
+        width: auto;
+        padding: 0 5px;
+        margin-right: 7px;
+    }
+
+    .medPageDetails .mainBoxMed .medText .catBtns:hover,
+    .medPageDetails .mainBoxMed .medText .brochureBtns:hover {
+        opacity: 0.8;
+    }
+
+    .medPageDetails .mainBoxMed .medText .brochureBtns {
+        display: inline-block;
+        width: auto;
+        padding: 0 5px;
+        margin-right: 7px;
+        width: 140px;
+    }
+
+    .medPageDetails .mainBoxMed .medText .isPrescription {
+        color: #696969;
+    }
+
+    .medPageDetails .mainBoxMed .medText .iscanceled {
+        color: #f3922c;
+    }
+
+    .medPageDetails .mainBoxMed .medImg {
+        width: 100%;
+        height: 100%;
+        margin-top: 2%;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel {
+        height: 100%;
+        box-shadow: 0 12px 14px -10px #5e5e5e;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .text-center {
+        height: 100%;
+        width: 250px;
+        margin: auto;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel-inner {
+        height: 100%;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel-inner img {
+        height: 100%;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel-indicators {
+        bottom: -45px;
+        padding: 0;
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel-indicators .active {
+        background-color: #179ace;
+        box-shadow: 0 2px 7px 0px #a09c9c;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .carousel-indicators li {
+        background-color: #414141;
+        border: 0;
+        width: 15px;
+        height: 15px;
+        margin: 0 5px !important;
+        outline: 0;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .left.carousel-control,
+    .medPageDetails .mainBoxMed .medImg .right.carousel-control {
+        position: absolute;
+        height: 50px;
+        top: 145px;
+        z-index: 99;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .glyphicon-chevron-left {
+        background: url("https://data.health.gov.il/drugs/assets/images/drugs/leftArrow.svg") no-repeat 50% 50%;
+        background-size: 60%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .glyphicon-chevron-right {
+        background: url("https://data.health.gov.il/drugs/assets/images/drugs/rightArrow.svg") no-repeat 50% 50%;
+        background-size: 60%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .medPageDetails .mainBoxMed .medImg .glyphicon-chevron-right:before {
+        content: "";
+    }
+
+    .medPageDetails .mainBoxMed .medImg .glyphicon-chevron-left:before {
+        content: "";
+    }
+
+    .medPageDetails .general-warning-wrapper {
+        margin-top: 9%;
+        margin-bottom: 9%;
+    }
+
+    .boxStyle {
+        margin-top: 20px;
+    }
+
+    .boxStyle .boxTitle {
+        height: 55px;
+        background-color: rgba(255, 255, 255, 0.33);
+        color: white;
+        font-size: 20px;
+        line-height: 55px;
+        position: relative;
+    }
+
+    .boxStyle .boxTitle .arrowDown {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        -webkit-transform: translate(0, -50%) rotate(0);
+        -moz-transform: translate(0, -50%) rotate(0);
+        -ms-transform: translate(0, -50%) rotate(0);
+        -o-transform: translate(0, -50%) rotate(0);
+        transform: translate(0, -50%) rotate(0);
+        transition: all 0.4s;
+        outline: 0;
+    }
+
+    .boxStyle .boxTitle .rotateArrow {
+        transition: all 0.4s;
+        -webkit-transform: translate(0, -50%) rotate(-180deg);
+        -moz-transform: translate(0, -50%) rotate(-180deg);
+        -ms-transform: translate(0, -50%) rotate(-180deg);
+        -o-transform: translate(0, -50%) rotate(-180deg);
+        transform: translate(0, -50%) rotate(-180deg);
+    }
+
+    .boxStyle .boxTitle > img {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .boxStyle .box {
+        background-color: white;
+        height: 0;
+        transition: all 0.4s;
+        overflow: hidden;
+    }
+
+    .boxStyle .showBox {
+        transition: all 0.4s;
+        height: auto;
+    }
+
+    .textStyle {
+        padding: 10px;
+        white-space: normal;
+        text-indent: 0;
+    }
+
+    .textStyle > div:first-child {
+        font-size: 15px;
+        line-height: 20px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .textStyle > div:last-child {
+        color: grey;
+        font-size: 14px;
+        display: inline-block;
+        width: 60%;
+        line-height: 20px;
+        vertical-align: top;
+    }
+
+    .textStyle > div {
+        display: inline-block;
+    }
+
+    .termsShow {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 90%;
+        left: 50%;
+        margin-left: -45%;
+        background-color: white;
+        z-index: 5;
+    }
+
+    .termsShow p {
+        padding: 15px;
+    }
+
+    .termsShow button {
+        color: white;
+        width: 75px;
+        height: 35px;
+        position: absolute;
+        font-size: 16px;
+        left: 20px;
+        bottom: 10px;
+        font-family: "Open Sans Hebrew Bold";
+    }
+
+    .termsShow button:active {
+        opacity: 0.7;
+    }
+
+    .hide-terms {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        line-height: 25px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+    }
+
+    .bgCover {
+        position: absolute;
+        top: 0;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        z-index: 4;
+    }
+
+    .checkbox-check {
+        opacity: 0;
+        position: absolute;
+        display: inline-block !important;
+        bottom: 0;
+        height: 55px;
+        width: 100%;
+    }
+
+    label.checkbox-text {
+        margin: 15px 0;
+    }
+
+    label.checkbox-text.black:before {
+        border: solid #959595 1px;
+        box-shadow: none;
+        height: 15px;
+        width: 15px;
+    }
+
+    .checkbox-container label:before {
+        box-shadow: none;
+        margin-left: 7px;
+        border: solid #959595 1px;
+        font-size: 18px;
+        line-height: 18px;
+        height: 18px;
+        width: 18px;
+    }
+
+    .checkbox-container input[type="checkbox"]:checked + label:before {
+        border: solid #959595 1px;
+    }
+
+    .checkbox {
+        bottom: 10px;
+        right: 0;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .checkbox input[type="checkbox"] {
+        opacity: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkbox input[type="checkbox"]:checked + label:before {
+        line-height: 18px;
+        box-shadow: none;
+        border: 2px solid #157ca7;
+    }
+
+    .checkbox label {
+        padding-left: 0;
+    }
+
+    .checkbox label:before {
+        margin-left: 0;
+        border: 2px solid #6fbae4;
+        box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .lngString {
+        padding-left: 2%;
+    }
+
+    .contactLineLn {
+        padding-right: 10%;
+    }
+
+    .medDeatailsActiveMetirals {
+        direction: ltr;
+        text-align: left;
+    }
+
+    .infoPage {
+        overflow-y: scroll;
+    }
+
+    .infoPage .contactDetails {
+        padding: 10px;
+    }
+
+    .infoPage .contactDetails > .contactLine {
+        margin: 10px 0;
+    }
+
+    .infoPage .contactDetails > .contactLine img {
+        margin-left: 15px;
+        width: 15px;
+    }
+
+    .infoPage .contactDetails > .contactLine a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .infoPage .contactDetails > .contactLine .email {
+        color: #04294f;
+        text-decoration: underline;
+    }
+
+    .infoPage .headerTitle {
+        height: 50px;
+        width: 100%;
+        font-family: "Open Sans Hebrew Bold";
+        color: white;
+        line-height: 50px;
+        padding-right: 5px;
+    }
+
+    .infoPage .paragraph {
+        padding: 0px 15px 0;
+        white-space: pre-line;
+    }
+
+    .infoPage .paragraph > div:first-child {
+        font-family: "Open Sans Hebrew Bold";
+    }
+
+    .infoPage .tipsText {
+        height: 260px;
+    }
+
+    .infoPage .tipsText .spacer {
+        width: 100%;
+        height: 60px;
+    }
+
+    .infoPage .tipsText .bottomShadow {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 30px;
+    }
+
+    .spacer25 {
+        height: 10px;
+    }
+    /* view by drug etc */
+    .view-by-drug-container {
+        padding: 0 10px;
+    }
+
+    .view-by-symptom-container {
+        padding: 0px 10px;
+    }
+
+    .search-textbox-container {
+        height: 50px;
+    }
+
+    .textbox-search-container {
+        height: 100%;
+        margin-top: 2px;
+        text-indent: 2px;
+    }
+
+    .textbox-search-container .textbox-search {
+        width: calc(100% -2% - 52px);
+        height: 50px;
+        border-width: 2px;
+        margin-left: 2px;
+    }
+
+    .textbox-search-container .search-button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .textbox-search-container .search-button .img-search {
+        background-size: 50%;
+    }
+
+    .search-section {
+        background-position: 50% 50%;
+        overflow-y: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .noResultsWithoutRes {
+        width: 80%;
+        margin: auto;
+        position: relative;
+        padding: 20px;
+        top: 20px;
+        top: 17% !important;
+    }
+
+    .noResultsWithoutRes .imgWrap img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .noResultsWithoutRes .text span {
+        display: block;
+        text-align: center;
+    }
+
+    .noResultsWithoutRes .bold {
+        font-weight: bolder;
+    }
+
+    .noResults {
+        width: 80%;
+        margin: auto;
+        position: relative;
+        padding: 20px;
+        top: 20px;
+    }
+
+    .noResults .imgWrap img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .noResults .text span {
+        display: block;
+        text-align: center;
+    }
+
+    .noResults .bold {
+        font-weight: bolder;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 90%;
+    }
+
+    :-moz-placeholder {
+        /* Firefox 18- */
+        font-size: 90%;
+    }
+
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        font-size: 90%;
+    }
+
+    :-ms-input-placeholder {
+        font-size: 90%;
+    }
+
+    .noResultsRaper {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        background-image: url("https://data.health.gov.il/drugs/assets/images/bg.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+
+    .noResultBtn {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 75%;
+        height: 35px;
+        color: white;
+        font-size: 13px;
+        margin-top: 15px;
+    }
+
+    .subMenuHeader .tryScanAgian {
+        background-color: white;
+        position: absolute;
+        z-index: 3;
+        width: 80%;
+        left: 50%;
+        margin-left: -40%;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        height: 100px;
+        text-align: center;
+    }
+
+    .subMenuHeader .tryScanAgian .text {
+        margin-top: 20px;
+    }
+
+    .subMenuHeader .tryScanAgian button {
+        width: 60%;
+        height: 35px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        margin-left: -30%;
+        color: white;
+    }
+
+    .smart-search-rows .row-container {
+        white-space: normal;
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        padding-top: 11px;
+        padding-bottom: 8px;
+        border-bottom: solid 1px #b6c1c2;
+    }
+
+    .smart-search-rows .row-container .checkbox-container {
+        height: 40px;
+        margin-bottom: 10px;
+        margin-right: 7px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .smart-search-rows .row-container .data-picker-container {
+        display: inline;
+    }
+
+    .smart-search-rows .row-container .data-picker-container .selectCytotoxic {
+        height: 40px;
+        -webkit-appearance: none;
+        outline: 0;
+        width: 50%;
+        float: left;
+        border-radius: 0;
+        border: 0;
+    }
+
+    .smart-search-rows .row-container .drop-down-container {
+        display: inline;
+    }
+
+    .smart-search-rows .row-container .drop-down-container .dropdown-container {
+        margin: 0;
+    }
+
+    .smart-search-rows .row-container .drop-down-container .dropdown {
+        float: right;
+        width: 74%;
+        margin-top: 15px;
+    }
+
+
+    .checkbox-container label:before {
+        display: inline-block;
+        background-color: white;
+        height: 22px;
+        width: 22px;
+        font-weight: bold;
+        vertical-align: middle;
+        border: 2px solid #6fbae4;
+        border-radius: 0;
+        content: "";
+        box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="checkbox"]:checked + label:before {
+        color: white;
+        content: "\2713";
+        display: inline-block;
+        font-size: 16px;
+        background-color: #75d2f0;
+        text-align: center;
+        border: 2px solid #157ca7;
+        box-shadow: none;
+        line-height: 18px;
+        cursor: pointer;
+    }
+
+    .dateTimePicker {
+        width: 100px;
+        height: 35px;
+        border: 0;
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .datePickerSet {
+        width: 100px;
+        height: 40px;
+        float: right;
+        margin-left: 3%;
+        position: relative;
+    }
+
+    .datePickerSet .datePickerStyle {
+        outline: none;
+        text-align: center;
+        border: 0;
+        width: 40%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .datePickerSet .calenderIcon {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 22px;
+    }
+
+    .datePickerSet > span {
+        margin-right: 5px;
+    }
+
+    .datePickerLines {
+        width: 75%;
+        height: 100%;
+        display: inline-block;
+        float: right;
+        margin-right: 15px;
+    }
+
+    .datePickerTable {
+        position: absolute;
+        z-index: 99;
+        top: 50px;
+        direction: ltr;
+    }
+
+    .closeDatePicker {
+        position: absolute;
+        z-index: 100;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: white;
+        text-align: center;
+        right: -15px;
+        line-height: 25px;
+        border: 1px solid #ccc;
+    }
+
+    .closeDatePicker img {
+        width: 50%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+    }
+
+    .disabledPicker {
+        opacity: 0.6;
+    }
+
+    .paginationRaper {
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        text-align: center;
+        direction: ltr;
+    }
+
+    .paginationRaper > span {
+        margin-left: 15px;
+    }
+
+    .paginationRaper > span:first-child {
+        margin-left: 0;
+    }
+
+    .mobilePagination {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #1b1b1b;
+        display: inline-block;
+        margin-top: 8px;
+    }
+
+    .groupTitleByTaken {
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #9a9999;
+    }
+
+    .errorHandler {
+        width: 85%;
+        margin-left: -42.5%;
+    }
+
+    .catLeng {
+        display: -webkit-flex;
+        width: calc(100vw - 30px);
+    }
+
+    .catBtnsWrap {
+        display: inline-block;
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        max-width: 69%;
+    }
+
+    .termsTextStyle {
+        font-style: italic;
+        font-size: 11px;
+    }
+
+    .subDropDownWrapper {
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        align-items: center;
+        -webkit-align-items: center;
+    }
+
+    .bottom-searchDesktop-wrapper {
+        display: -webkit-flex; /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        background-color: transparent;
+        height: 95px;
+        justify-content: flex-end;
+        -webkit-justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .move-bottom-height {
+        height: auto;
+    }
+
+    .spacer30new {
+        width: 100%;
+        height: 33px;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    .quick-search-container .search-button {
+        height: 9vh !important;
+    }
+}
+
+@font-face {
+    font-family: "Open Sans Hebrew Light";
+    src: url("https://data.health.gov.il/drugs/assets/fonts/OpenSansHebrew/opensanshebrew-light.woff") format("woff"),
+        url("https://data.health.gov.il/drugs/assets/fonts/OpenSansHebrew/OpenSansHebrew- Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Open Sans Hebrew";
+    src: url("https://data.health.gov.il/drugs/assets/fonts/OpenSansHebrew/opensanshebrew-regular.woff") format("woff"),
+        url("https://data.health.gov.il/drugs/assets/fonts/OpenSansHebrew/OpenSansHebrew- Regular.ttf")
+            format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Hebrew Bold";
+    src: url("https://data.health.gov.il/drugs/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.ttf") format("truetype");
+}
+
+.sprite {
+    background: transparent url("https://data.health.gov.il/drugs/assets/sprite.png") no-repeat bottom left;
+}
+
+
+html {
+    direction: rtl;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+input,
+textarea {
+    user-select: auto;
+    -webkit-user-select: auto;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    background-clip: padding-box !important;
+    -webkit-background-clip: padding-box !important;
+}
+
+* {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none; /*cursor: pointer !important;*/
+}
+
+div {
+    outline: 0;
+}
+
+input {
+    outline: 0;
+}
+
+button {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    padding: 0;
+    outline: none;
+}
+
+.looksDisabled {
+    opacity: 0.5;
+}
+
+.main-bg {
+    background-image: url("https://data.health.gov.il/drugs/assets/images/bg.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: none;
+}
+
+.main-view {
+    /*display: inline;*/
+    display: block;
+}
+
+/*************************************/
+/**************** generic transforms **************/
+/*************************************/
+.verticalTranslate {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.horizontalTranslate {
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.verticalAlign {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.horizontalAlign {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX (-50%);
+}
+
+.centerAlign {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+/*********************************** IDR - UI - ELEMENTS ***********************************/
+/*************************************/
+/********* IDR - DropDownList ********/
+/*************************************/
+.dropdown-container .dropdown {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.dropdown-container .dropdown .dropdown-toggle,
+.dropdown-container .dropdown .btn-default.active,
+.dropdown-container .dropdown .btn-default.focus,
+.dropdown-container .dropdown .btn-default:focus,
+.dropdown-container .dropdown .btn-default:hover .btn-default:active {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+.dropdown-container .dropdown .dropdown-toggle label,
+.dropdown-container .dropdown .btn-default.active label,
+.dropdown-container .dropdown .btn-default.focus label,
+.dropdown-container .dropdown .btn-default:focus label,
+.dropdown-container .dropdown .btn-default:hover .btn-default:active label {
+    font-family: "Open Sans Hebrew";
+    font-weight: normal;
+    width: 85%;
+    text-indent: 5px;
+}
+
+.dropdown-container .dropdown .mainPageDropdownButton {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    align-content: center;
+    -webkit-align-content: center;
+}
+
+.dropdown-container .dropdown .mainPageDropdownLabel {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.dropdown-container .dropdown .caret {
+    width: 18px;
+    height: 11px;
+    position: relative;
+    border: 0;
+    transition: all 0.5s;
+    margin-left: 10px;
+    margin-top: 1%;
+}
+
+.dropdown-container .dropdown .caret img {
+    width: 18px;
+    height: 11px;
+    position: absolute;
+}
+
+.dropdown-container .dropdown.open .caret {
+    width: 18px;
+    height: 11px;
+    position: relative;
+    border: 0;
+    transition: all 0.5s;
+    margin-left: 10px;
+    -webkit-transform: translate(0, -50%) rotate(-180deg);
+    -moz-transform: translate(0, -50%) rotate(-180deg);
+    -ms-transform: translate(0, -50%) rotate(-180deg);
+    -o-transform: translate(0, -50%) rotate(-180deg);
+    transform: translate(0, -50%) rotate(-180deg);
+}
+
+.dropdown-container .dropdown.open .caret img {
+    width: 18px;
+    height: 11px;
+    position: absolute;
+}
+
+.dropdown-container .dropdown .dropdown-menu {
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    background-color: #c0d83c;
+    height: auto;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.dropdown-container .dropdown .dropdown-menu li a:hover {
+    background-color: #d9f445;
+}
+.dropdown-container .dropdown .dropdown-menu li label {
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+}
+
+.dropdown-container .dropdown-backdrop {
+    position: static;
+}
+/*************************************/
+/*************************************/
+/******** IDR - Search Textbox *******/
+/*************************************/
+.textbox-search-container .textbox-search {
+    width: calc(100% - 1px - 50px);
+    height: 40px;
+    font-family: "Open Sans Hebrew";
+    font-size: 16px;
+    border: 1px solid #b5b5b5;
+    vertical-align: middle;
+    border-radius: 0;
+    float: right;
+    text-indent: 5px;
+}
+
+.textbox-search-container .search-button {
+    color: #fff !important;
+    width: 50px;
+    line-height: 40px;
+    text-align: center; /* 
+
+Chrome10+,Safari5.1+ */
+    display: inline-block;
+    height: 40px;
+    vertical-align: middle;
+    color: white;
+    float: left;
+}
+
+.textbox-search-container .search-button .img-search {
+    background-image: url("https://data.health.gov.il/drugs/assets/images/cuts/app/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-size: 63%;
+}
+/*************************************/
+/*************************************/
+/*********** IDR - Checkbox **********/
+/*************************************/
+.checkbox-container label:before {
+    display: inline-block;
+    background-color: white;
+    height: 22px;
+    width: 22px;
+    font-weight: bold;
+    vertical-align: middle;
+    border: 2px solid #6fbae4;
+    border-radius: 0;
+    content: "";
+    box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.checkbox-container label:before input[type="checkbox"]:checked + label:before {
+    display: inline-block;
+    background-color: #75d2f0;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #157ca7;
+    content: "\2713"; /* V - Sign */
+    box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.checkbox-container .checkbox-check {
+    display: none;
+}
+
+.checkbox-container .checkbox-text {
+    float: right;
+    font-family: "Open Sans Hebrew";
+    font-size: 13px;
+    height: 25px;
+}
+/*************************************/
+/********************************* END: IDR - UI - ELEMENTS *********************************/
+/*************************************/
+/************** Checkbox *************/
+/*************************************/
+.checkbox label:before {
+    font-weight: bold;
+    content: "";
+    display: inline-block;
+    border-radius: 0;
+    background-color: white;
+    height: 22px;
+    width: 22px;
+    vertical-align: middle;
+    margin-left: 10px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label:before {
+    color: white;
+    content: "\2713";
+    display: inline-block;
+    font-size: 16px;
+    background-color: #75d2f0;
+    text-align: center;
+    border: 2px solid #157ca7;
+    box-shadow: none;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-text:before {
+    cursor: pointer;
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+    background-color: #000000;
+}
+
+.slider {
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    background: #e6e6e6;
+    border: 20px solid #fff;
+    margin-top: 20px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*---------------------------------------------------------
+NAV
+---------------------------------------------------------*/
+.nav {
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 1002;
+    left: 0;
+    bottom: -4px;
+    right: 0;
+    height: 48px;
+}
+
+.nonDraggableImage {
+    -webkit-user-drag: none;
+}
+
+.nav .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 0.8em;
+}
+
+.nav ul {
+    margin: 0;
+    width: 100%;
+}
+
+.nav .dot,
+.nav .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+
+.dots .dot {
+    position: relative;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
+}
+
+.dots .dot a {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.25s, border-color 0.25s;
+    -moz-transition: background-color 0.25s, border-color 0.25s;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+.dots .dot a.active {
+    border-color: #fff;
+    background-color: transparent;
+}
+
+input[type="range"] {
+    width: 300px;
+}
+
+ul[rn-carousel] {
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    position: relative;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
+ul[rn-carousel] > li {
+    color: black;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: visible;
+    vertical-align: top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: normal;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+/* prevent flickering when moving buffer */
+ul[rn-carousel-buffered] > li {
+    display: none;
+}
+
+ul[rn-carousel-transition="hexagon"] {
+    overflow: visible;
+}
+/* indicators */
+div.rn-carousel-indicator span {
+    cursor: pointer;
+    color: #666;
+}
+
+div.rn-carousel-indicator span.active {
+    color: white;
+}
+/* prev/next controls */
+.rn-carousel-control {
+    -webkit-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    font-size: 2rem;
+    position: absolute;
+    top: 40%;
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.rn-carousel-control:hover {
+    opacity: 1;
+}
+
+.rn-carousel-control.rn-carousel-control-prev {
+    left: 0.5em;
+}
+
+.rn-carousel-control.rn-carousel-control-prev:before {
+    content: "<";
+}
+
+.rn-carousel-control.rn-carousel-control-next {
+    right: 0.5em;
+}
+
+.rn-carousel-control.rn-carousel-control-next:before {
+    content: ">";
+}
+
+.center {
+    text-align: center;
+}
+
+.bgimage {
+    text-align: right;
+    color: white;
+    background-size: cover;
+    height: 100%;
+    background-position: center center;
+}
+
+ul[rn-carousel] {
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.carousel5 li {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: #ccc;
+}
+
+.carousel-demo {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.carousel-demo-fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-demo-fullscreen ul[rn-carousel] {
+    width: 100%;
+    height: 100%;
+}
+
+input.tiny {
+    width: 50px;
+    text-align: center;
+}
+
+.carousel-demo ul[rn-carousel-transition="hexagon"] {
+    margin-left: 100px;
+}
+
+.custom-indicator span {
+    transition: all 0.3s ease-in;
+}
+
+.custom-indicator span.active {
+    color: yellow !important;
+}
+
+.md-half-circle {
+    border-left-color: #1b8e68 !important;
+    border-top-color: #1b8e68 !important;
+    border-right-color: #1b8e68 !important;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none !important;
+}
+
+.textStyle {
+    height: auto;
+    line-height: 36px;
+    text-indent: 0;
+    padding: 0 8px;
+}
+
+.textStyle > div:first-child {
+    font-family: "Open Sans Hebrew Bold";
+    width: 30%;
+    font-size: 16px;
+    float: right;
+    font-weight: 600;
+}
+
+.textStyle > div:last-child,
+.textStyle > div:last-child > a,
+.textStyle > div:last-child > div > span,
+.textStyle > div li,
+.textStyle > div:nth-child(2),
+.textStyle > div:nth-child(2) > span {
+    color: #49829a !important;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.textStyle > div {
+    display: inline-block;
+}
+
+ui-view,
+.mobileHeight {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+/*ui-view.drugSearchResults {
+        height: 100vh;
+        overflow-y: auto;
+        position: relative;
+    }*/
+.medPageDetails {
+    overflow: hidden !important;
+}
+
+.quickSearchWrapper {
+    height: 100%;
+}
+
+ui-view,
+.mobileHeightSmartSearch {
+    display: block;
+}
+
+.medPageDetails {
+    overflow-y: scroll;
+    background-image: url("https://data.health.gov.il/drugs/assets/images/bg.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.medPageDetails .breadCrumb {
+    color: white;
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+.medPageDetails .breadCrumb > .constSpan {
+    text-decoration: underline;
+}
+
+.medPageDetails .medTitles {
+    color: white;
+}
+
+.medPageDetails .medTitles > div:first-child {
+    font-family: "Open Sans Hebrew Bold";
+    font-size: 28px;
+}
+
+.medPageDetails .medTitles > div:last-child {
+    font-size: 18px;
+}
+
+.medPageDetails .mainBoxMed {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin-top: 10px;
+    min-height: 250px;
+    overflow-x: hidden;
+}
+
+.medPageDetails .mainBoxMed .medText {
+    width: 60%;
+    height: 100%;
+    display: block;
+    min-width: 304px;
+}
+
+.medPageDetails .mainBoxMed .medText > div {
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureDownload {
+    font-family: "Open Sans Hebrew Bold";
+    margin-left: 32px;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtnsWrap {
+    padding-left: 24.5%;
+    float: left;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtns {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 15px;
+    color: white;
+    font-size: 16px;
+    font-family: "Open Sans Hebrew";
+    outline: 0;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtns:hover,
+.medPageDetails .mainBoxMed .medText .brochureBtns:hover {
+    opacity: 0.8;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureBtns {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 15px;
+    color: white;
+    font-size: 16px;
+    font-family: "Open Sans Hebrew";
+    outline: 0;
+    width: 150px;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureBtns img {
+    margin-right: 10px;
+}
+
+.medPageDetails .mainBoxMed .medText .isPrescription {
+    color: #696969;
+}
+
+.medPageDetails .mainBoxMed .medText .iscanceled {
+    color: #f3922c;
+}
+
+.medPageDetails .mainBoxMed .medImg {
+    width: 39%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: 10px;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel {
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    left: 12%;
+    box-shadow: 0 12px 14px -10px #5e5e5e;
+}
+
+.medPageDetails .mainBoxMed .medImg .text-center {
+    height: 100%;
+    width: 250px;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-inner {
+    height: 100%;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-inner img {
+    height: 100%;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators {
+    bottom: -45px;
+    padding: 0;
+    width: 100%;
+    margin-left: 0;
+    left: 0;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators .active {
+    background-color: #179ace;
+    box-shadow: 0 2px 7px 0px #a09c9c;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators li {
+    background-color: #414141;
+    border: 0;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px !important;
+    outline: 0;
+}
+
+.medPageDetails .mainBoxMed .medImg .left.carousel-control,
+.medPageDetails .mainBoxMed .medImg .right.carousel-control {
+    position: absolute;
+    height: 50px;
+    top: 160px;
+    z-index: 99;
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-left {
+    background: url("https://data.health.gov.il/drugs/assets/images/drugs/leftArrow.svg") no-repeat 50% 50%;
+    background-size: 70%;
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-right {
+    background: url("https://data.health.gov.il/drugs/assets/images/drugs/rightArrow.svg") no-repeat 50% 50%;
+    background-size: 70%;
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-right:before {
+    content: "";
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-left:before {
+    content: "";
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next,
+.carousel-control .icon-prev {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    font-size: 30px;
+}
+
+.divider {
+    width: 97%;
+    height: 1px;
+    background-color: #64ada5;
+    margin: auto;
+    z-index: 999;
+}
+
+.paginationSearch {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    direction: ltr;
+}
+
+.paginationSearch > span {
+    padding: 0 5px;
+    height: 25px;
+    display: inline-block;
+    direction: inherit;
+}
+
+.paginationSearch .selectPage {
+    color: #145e6f !important;
+    font-weight: 600;
+}
+
+.errorHandler {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(0, -50%);
+    background-color: white;
+    text-align: center;
+    min-height: 100px;
+    z-index: 10;
+}
+
+.errorHandler > div:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.errorHandler > div:nth-child(2) {
+    font-size: 16px;
+}
+
+.errorHandler button {
+    width: 60%;
+    height: 35px;
+    color: white;
+    margin: 10px 0;
+
+}
+
+.errorHandler .exitPop {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    color: white !important;
+    border-radius: 50%;
+    line-height: 25px;
+}
+
+.bgShadow {
+    background-color: black;
+    z-index: 8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+}
+
+.dropdown-menu > li > a {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.orientationView {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 99999999;
+}
+
+.landscapeIcon {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+}
+/*************************************/
+.search_wrap {
+    -webkit-overflow-scrolling: touch;
+}
+
+.mock {
+    width: 1000%;
+}
+
+/*#region HEADER*/
+
+.opp-direction {
+    float: left;
+}
+
+.healthContainer {
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    max-width: 1000px;
+    box-shadow: 0px 9px 0px 0px white, 0px -9px 0px 0px white, 12px 0px 15px -4px rgba(237, 237, 237, 0.8),
+        -12px 0px 15px -4px rgba(237, 237, 237, 0.8);
+}
+
+#accessibilityLng {
+    display: none;
+    position: relative;
+}
+
+.Languages {
+    width: 65px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-top-color: #000000;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: #000000;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    display: none;
+    position: absolute;
+    z-index: 55;
+    background-color: rgb(255, 255, 255);
+}
+
+.currentLanguage {
+    padding-top: 11px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+    text-decoration: none;
+    border-top-color: #797979;
+    border-right-color: #797979;
+    border-bottom-color: #797979;
+    border-left-color: #797979;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+}
+
+.healthVoice {
+    margin-left: 5px;
+}
+.popup-header {
+    margin: 0;
+    float: none !important;
+    position: absolute;
+    left: 20px;
+    top: 17px;
+}
+.popup-header .button-info {
+    line-height: 20px;
+}
+
+.searchButton {
+    width: 21px;
+    height: 22px;
+    background-image: url("/Style Library/Images/Health/But_reg.png");
+    background-repeat: no-repeat;
+}
+
+.glyphicon-search::before {
+    content: "";
+}
+
+.searchboxContainer {
+    float: left;
+    display: none;
+}
+
+#SearchBox .ms-srch-sb-border,
+#SearchBox .ms-srch-sb-borderFocused {
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    behavior: url(/_layouts/15/PIE/PIE.htc);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: rgb(205, 225, 254);
+}
+
+#topnavbar .ms-core-listMenu-root > li > a.menu-item {
+    display: none !important;
+}
+
+div,
+span,
+a,
+input,
+p,
+li {
+    color: #252525;
+    font-family: "Open Sans Hebrew";
+    font-size: 14px;
+}
+
+.boldFont,
+.healthLayout .boldFont {
+    font-family: "Open Sans Bold";
+}
+
+#topnavbar {
+    margin-top: 0px;
+}
+
+.navbar#topnavbar .navbar-toggle {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: rgb(60, 61, 77);
+}
+
+.navbar#topnavbar .navbar-toggle .navBtnText {
+    color: #ffffff !important;
+    font-size: 12px !important;
+}
+
+.navbar#topnavbar {
+    z-index: 1001;
+}
+
+#topnavbar .navbar-inner {
+    position: relative;
+}
+
+.topNavigation .topNavigationInner {
+    top: 0px;
+    width: 417px;
+    right: 0px;
+    position: absolute;
+    min-height: 1130px;
+    background-color: rgb(60, 61, 77);
+}
+
+.navbar#topnavbar .closeTopNavBtn.navbar-toggle {
+    width: 55px;
+    height: 51px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    float: none;
+    background-color: rgb(48, 49, 62);
+}
+
+.topNavigation #DeltaTopNavigation .nav-container {
+    float: none;
+}
+
+.topNavigation ul.static.ms-core-listMenu-root {
+    display: block !important;
+}
+
+.topNavigation .ms-core-listMenu-root span {
+    color: #ffffff;
+}
+
+.closeTopNavWrapper {
+    border-bottom-color: #7e7d87;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+#topnavbar .nav ul.static {
+    left: 0px !important;
+    display: block;
+}
+
+#topnavbar .nav li {
+    border-bottom-color: #7e7d87;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+#topnavbar .nav-container > ul > li,
+#topnavbar .nav li.hover,
+#topnavbar .nav li:last-child.dynamic {
+    border-bottom-color: currentColor;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+}
+
+#topnavbar .nav li.static {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: block;
+}
+
+#topnavbar .nav ul.static > li.dynamic-children {
+    background-image: url("/Style Library/Images/Health/CliniResearch/NewMaster/arrowDown.png");
+    background-repeat: no-repeat;
+    background-position-x: 30px;
+    background-position-y: 28px;
+}
+
+#topnavbar .nav li.static > .menu-item {
+    padding-right: 0px;
+    margin-left: 0px;
+    display: block;
+}
+
+.nav-container li.static > a > span > span,
+.nav-container,
+#topnavbar .nav li.static > span.menu-item > span > span,
+.nav-container li.dynamic > a > span > span {
+    font-family: "Open Sans Hebrew";
+    font-size: 18px;
+}
+
+.nav-container li > ul > li.static > a > span,
+.bootstrap3 #topnavbar .ms-core-listMenu-horizontalBox .static > .additional-background.dynamic-children,
+.bootstrap3 #topnavbar .ms-core-listMenu-horizontalBox span.static > .additional-background {
+    padding-top: 25px !important;
+    padding-right: 30px !important;
+    padding-bottom: 25px !important;
+    display: block !important;
+}
+
+#topnavbar .nav ul.static > li.dynamic-children > ul.dynamic {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    display: none;
+    background-color: rgb(71, 73, 88);
+}
+
+#topnavbar ul.dynamic > li {
+    padding-top: 18px;
+    padding-right: 15px;
+    padding-bottom: 18px;
+}
+
+.openMenuBtn {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.crSiteTitle {
+    height: 45px;
+    color: #252525;
+    overflow: hidden;
+    padding-top: 8px;
+    padding-right: 17px;
+    background-color: rgb(237, 238, 239);
+}
+
+.crSiteTitle a,
+.crSiteTitle a:hover {
+    font-size: 24px !important;
+    text-decoration: none !important;
+}
+
+.openMenuBtnImg {
+    width: 30px;
+    height: 18px;
+    display: inline-block;
+    background-image: url("/Style%20Library/Images/Health/CliniResearch/NewMaster/hamburger.png");
+}
+
+.sitePartsWrapper {
+    text-align: center;
+    font-size: 0px;
+    margin-top: 15px;
+}
+
+.siteParts {
+    width: 400px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+.siteParts li {
+    height: 40px;
+    padding-top: 9px;
+    vertical-align: bottom;
+    border-left-color: #ffffff;
+    border-left-width: 1px;
+    border-left-style: solid;
+    display: inline-block;
+    background-color: rgb(60, 61, 77);
+}
+
+.siteParts li.selectedSitePart {
+    background-color: rgb(78, 201, 232);
+}
+
+.siteParts li a,
+.siteParts li a:hover {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.siteParts li.selectedSitePart a {
+    color: #212428;
+}
+
+.accessibilityLine {
+    padding-top: 13px;
+}
+
+.healthVoice img {
+    width: 40px;
+}
+
+.currentLanguage {
+    padding-top: 0px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    border-top-color: currentColor;
+    border-right-color: #cccccc;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: 1px;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: none;
+}
+
+.currentLanguage .text {
+    margin-left: 8px;
+}
+
+.currentLanguage .langArrow {
+    width: 7px;
+    height: 5px;
+    display: inline-block;
+    background-image: url("/Style Library/Images/Health/CliniResearch/NewMaster/_lengueg_arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.Languages {
+    z-index: 1010;
+}
+
+.noSidePadding {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#topnavbar {
+    background-color: rgb(237, 238, 239) !important;
+    margin-top: 15px;
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    background-color: inherit;
+}
+
+.nav-container li > ul > li.static {
+    height: 30px;
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+    vertical-align: top;
+    border-right-color: #050505;
+    border-right-width: 1px;
+    border-right-style: dotted;
+}
+
+.nav-container li > ul > li:first-child {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+}
+
+#topnavbar .nav li.static > .menu-item {
+    padding-right: 7px;
+    margin-left: 7px;
+}
+
+.nav-container li > ul > li.static > a > span,
+.nav-container li > ul > li.static > span > span {
+    height: 41px;
+    padding-top: 7px;
+    padding-right: 12px;
+    margin-left: 15px !important;
+    display: inline-block !important;
+}
+
+.nav-container li.static > a > span > span,
+.nav-container li.static > span > span > span {
+    font-family: Tahoma;
+}
+
+#topnavbar .nav li.static > .menu-item,
+#topnavbar li.static > .menu-item {
+    height: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.bootstrap3 #topnavbar .ms-core-listMenu-horizontalBox .static > .additional-background.dynamic-children {
+    padding-right: 12px !important;
+    padding-left: 0px !important;
+    background-image: none;
+}
+
+#topnavbar ul.dynamic > li {
+    padding-right: 0px;
+    padding-left: 0px;
+    border-top-color: transparent;
+    border-bottom-color: #ffffff;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-top-style: none;
+    border-bottom-style: solid;
+}
+
+#topnavbar ul > li.dynamic > a.menu-item {
+    height: auto;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.nav-container li > ul > li.static {
+    height: auto;
+}
+
+.nav-container li > ul > li.static {
+    border-right-color: transparent !important;
+    border-right-width: 0px !important;
+    border-right-style: none !important;
+}
+
+.nav-container li > ul > li.static > a > span,
+.nav-container li > ul > li.static > span > span {
+    height: auto;
+    padding-left: 12px;
+    margin-left: 0px !important;
+}
+
+.nav-container li > ul > li.static > span > span {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar#topnavbar .navbar-toggle {
+    display: inline-block;
+}
+
+#currentNav,
+#currentNav > div,
+#currentNav > div > div,
+#currentNav > div > div > div,
+#currentNav #navAncor {
+    font-size: 0px;
+}
+
+#currentNav .navbar {
+    text-align: center;
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    min-height: inherit;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: rgb(78, 201, 232);
+}
+
+#currentNav .navbar .navbar-nav {
+    padding-right: 0px;
+    padding-top: 3px;
+    float: none;
+    display: inline-block;
+}
+
+#currentNav .navbar .navbar-nav > li:first-child {
+    display: none;
+}
+
+#currentNav .firstLevelLink {
+    color: #252525;
+    padding-top: 6px;
+    padding-right: 18px;
+    padding-bottom: 7px;
+    padding-left: 18px;
+}
+
+.collapse.navbar-collapse.topNavigation {
+    display: none !important;
+}
+
+.topNavigation.navbar-collapse.topNavigation {
+    height: auto !important;
+}
+
+.pull-right {
+    float: right;
+}
+
+.yamm .nav,
+.yamm .dropup,
+.yamm .dropdown,
+.yamm .collapse {
+    position: static;
+}
+
+#DeltaTopNavigation > div.nav,
+.bootstrap3 #DeltaTopNavigation > div.nav-container {
+    margin-right: 0px;
+    float: right;
+}
+
+.bootstrap3 #topnavbar .nav ul.static {
+    text-align: right !important;
+}
+
+.bootstrap3 #topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    padding-right: 0px !important;
+    padding-left: 20px !important;
+}
+
+.widescreen .nav,
+.widescreen .nav li.firstLevel,
+.widescreen .nav ul.secondlevel {
+    float: right;
+}
+
+.navbar.yamm .widescreen .nav li a {
+    padding-right: 0px;
+    float: right;
+}
+
+#SearchBox {
+    width: 100%;
+    max-width: 99%;
+}
+
+.bootstrap3 #SearchBox div.ms-srch-sbLarge {
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    outline-style: none;
+}
+
+.bootstrap3 #SearchBox div.ms-srch-sbLarge > input {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.searchButton {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 20px;
+}
+
+.bootstrap3 .ms-srch-sbLarge-fullWidth {
+    width: auto;
+}
+
+#topnavbar {
+    height: auto;
+}
+
+.navbar#topnavbar {
+    z-index: 50;
+}
+
+#topnavbar .navbar-collapse {
+    clear: both;
+    max-height: none;
+}
+
+.ms-core-listMenu-horizontalBox {
+    display: block;
+}
+
+#topnavbar .nav ul,
+#topnavbar .nav ul > li {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    float: none;
+    list-style-type: none;
+    list-style-position: outside;
+    list-style-image: none;
+}
+
+#topnavbar .nav ul.static {
+    text-align: left;
+    display: block;
+    position: relative;
+}
+
+#topnavbar li.static {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+#topnavbar li.static > .menu-item {
+    height: 47px;
+    line-height: 1em;
+    padding-top: 15px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    display: block;
+    position: relative;
+}
+
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+}
+
+#topnavbar .nav img {
+    max-width: none;
+}
+
+#topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    width: 100%;
+    display: block;
+}
+
+#topnavbar ul.dynamic {
+    top: auto !important;
+    width: auto !important;
+    box-shadow: none;
+}
+
+#topnavbar ul.dynamic > li {
+    height: auto;
+    border-top-color: #d1d1d1;
+    border-right-color: currentColor;
+    border-top-width: 1px;
+    border-right-width: medium;
+    border-top-style: solid;
+    border-right-style: none;
+    float: none;
+    display: block;
+    background-image: none;
+    background-attachment: scroll;
+    background-repeat: repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-color: transparent;
+}
+
+#topnavbar li.dynamic .menu-item {
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+#topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    background-image: url("/_layouts/15/images/menu-down.gif");
+}
+
+#topnavbar {
+    height: auto;
+}
+
+#topnavbar .ms-core-listMenu-horizontalBox {
+    display: block;
+}
+
+#topnavbar .nav ul.static {
+    display: inline-block;
+}
+
+#topnavbar .nav li.static {
+    width: auto;
+    display: inline-block;
+}
+
+#topnavbar .nav li.static > .menu-item {
+    height: 49px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    display: inline-block;
+}
+
+#topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    width: auto;
+    padding-right: 20px;
+    display: inline;
+}
+
+#topnavbar .nav ul.static > li.dynamic-children > ul.dynamic {
+    top: 49px !important;
+    position: absolute !important;
+}
+
+#topnavbar ul.dynamic > li {
+    white-space: nowrap;
+    position: relative;
+    min-width: 150px;
+}
+
+#topnavbar ul.dynamic > li:first-child {
+    border-top-color: transparent;
+    border-top-width: 0px;
+    border-top-style: none;
+}
+
+#topnavbar li.dynamic > .menu-item {
+    height: 34px;
+    line-height: 1em;
+    padding-top: 9px;
+    padding-right: 15px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    background-image: url("/_layouts/15/images/menu-down.gif");
+}
+
+.ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    padding-left: 26px;
+    cursor: pointer;
+    background-image: url("/_layouts/15/images/menu-down.gif?rev=23");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+}
+
+.ms-srch-sbLarge {
+    display: inline-block;
+    z-index: 1001;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.ms-srch-sbLarge > input {
+    height: 30px;
+    padding-top: 0px;
+    padding-right: 1px;
+    padding-bottom: 0px;
+    padding-left: 1px;
+    font-size: 20px;
+    margin-top: 1px;
+    margin-right: 6px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    vertical-align: top;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    float: right;
+    display: inline-block;
+    outline-style: none;
+    background-color: transparent;
+}
+
+.ms-srch-sbLarge-fullWidth {
+    width: 456px;
+}
+
+.ms-srch-sbLarge > .ms-srch-sb-searchLink {
+    width: 32px;
+    height: 32px;
+}
+
+#DeltaTopNavigation > div.nav,
+.bootstrap3 #DeltaTopNavigation > div.nav-container {
+    margin-right: 0px;
+    float: right;
+}
+
+.bootstrap3 #topnavbar .nav ul.static {
+    text-align: right !important;
+}
+
+.bootstrap3 #topnavbar .ms-core-listMenu-horizontalBox .additional-background.dynamic-children {
+    padding-right: 0px !important;
+    padding-left: 20px !important;
+}
+
+.widescreen .nav,
+.widescreen .nav li.firstLevel,
+.widescreen .nav ul.secondlevel {
+    float: right;
+}
+
+.navbar.yamm .widescreen .nav li a {
+    padding-right: 0px;
+    float: right;
+}
+
+ul.dynamic {
+    top: -9999px;
+    right: -9999px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-top-color: #d1d1d1;
+    border-right-color: #d1d1d1;
+    border-bottom-color: #d1d1d1;
+    border-left-color: #d1d1d1;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    white-space: normal;
+    position: absolute;
+    z-index: 50;
+    word-wrap: break-word;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.47);
+    background-color: rgb(255, 255, 255);
+}
+
+li.dynamic {
+    display: list-item;
+}
+
+.ms-displayInline {
+    display: inline;
+}
+
+.ms-core-listMenu-root {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.ms-core-listMenu-verticalBox .ms-core-listMenu-item,
+ul.dynamic .ms-core-listMenu-item {
+    display: block;
+}
+
+.ms-core-listMenu-item,
+.ms-core-listMenu-item:link,
+.ms-core-listMenu-item:visited,
+.ms-tv-item:link,
+.ms-tv-item:visited,
+.ms-tv-header:link,
+.ms-tv-header:visited {
+    color: #666666;
+    text-decoration: none;
+}
+
+.ms-core-listMenu-selected:link,
+.ms-core-listMenu-selected:visited,
+.ms-core-listMenu-selected {
+    background-color: rgba(239, 239, 239, 0.78);
+}
+
+.ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:link,
+.ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:visited,
+.ms-core-listMenu-horizontalBox .ms-core-listMenu-selected,
+.ms-tv-selected:link {
+    color: #0072c6;
+    background-color: transparent;
+}
+
+.ms-core-navigation {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.ms-srch-sb-border {
+    border-top-color: #ababab;
+    border-right-color: #ababab;
+    border-bottom-color: #ababab;
+    border-left-color: #ababab;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.ms-srch-sb-navLink,
+.ms-srch-sb-searchLink {
+    overflow: hidden;
+    vertical-align: top;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.ms-textLarge {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-size: 1.15em;
+}
+
+.ms-helperText,
+input.ms-helperText {
+    color: #777;
+}
+
+.ms-displayInline {
+    display: inline;
+}
+
+.ms-accessible,
+.ms-hidden,
+a.ms-skip,
+a.ms-skip:hover,
+a.ms-skip:visited,
+a.ms-TurnOnAcc,
+a.ms-SkiptoMainContent,
+a.ms-SkiptoNavigation {
+    top: -2000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+}
+
+.ms-clear {
+    clear: both;
+}
+
+.ms-floatLeft {
+    float: right;
+}
+
+.ms-bold {
+    font-weight: bold;
+}
+
+.ms-webpart-chrome-fullWidth {
+    min-width: 100%;
+}
+
+.ms-webpart-chrome {
+    box-sizing: border-box;
+    border-spacing: 0px;
+}
+
+.ms-core-listMenu-verticalBox,
+.ms-core-listMenu-horizontalBox {
+    font-size: 1em;
+}
+
+.ms-core-listMenu-horizontalBox {
+    color: #666666;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.ms-core-listMenu-horizontalBox ul,
+.ms-core-listMenu-horizontalBox li,
+.ms-core-listMenu-horizontalBox .ms-core-listMenu-item,
+.ms-core-listMenu-horizontalBox > ul > li > table {
+    display: inline-block;
+}
+
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
+    margin-left: 30px;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.nav {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    list-style-type: none;
+    list-style-position: outside;
+    list-style-image: none;
+}
+
+.nav::before,
+.nav::after {
+    display: table;
+    content: " ";
+}
+
+.nav::after {
+    clear: both;
+}
+
+.nav::before,
+.nav::after {
+    display: table;
+    content: " ";
+}
+
+.nav::after {
+    clear: both;
+}
+
+.nav > li {
+    display: block;
+    position: relative;
+}
+
+.nav > li > a {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    display: block;
+    position: relative;
+}
+
+.navbar {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    position: relative;
+    z-index: 1000;
+    min-height: 50px;
+}
+
+.navbar::before,
+.navbar::after {
+    display: table;
+    content: " ";
+}
+
+.navbar::after {
+    clear: both;
+}
+
+.navbar::before,
+.navbar::after {
+    display: table;
+    content: " ";
+}
+
+.navbar::after {
+    clear: both;
+}
+
+.navbar {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-top-color: transparent;
+    border-top-width: 1px;
+    border-top-style: solid;
+    overflow-x: visible;
+    max-height: 340px;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+
+.navbar-collapse::before,
+.navbar-collapse::after {
+    display: table;
+    content: " ";
+}
+
+.navbar-collapse::after {
+    clear: both;
+}
+
+.navbar-collapse::before,
+.navbar-collapse::after {
+    display: table;
+    content: " ";
+}
+
+.navbar-collapse::after {
+    clear: both;
+}
+
+.navbar-collapse {
+    width: auto;
+    border-top-color: currentColor;
+    border-top-width: 0px;
+    border-top-style: none;
+    box-shadow: none;
+}
+
+.collapse.navbar-collapse {
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 0px;
+    display: block !important;
+}
+
+.navbar-toggle {
+    padding-top: 9px;
+    padding-right: 10px;
+    padding-bottom: 9px;
+    padding-left: 10px;
+    margin-top: 0px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    float: right;
+    position: relative;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: transparent;
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+.navbar-nav {
+    margin-top: 7.5px;
+    margin-right: -15px;
+    margin-bottom: 7.5px;
+    margin-left: -15px;
+}
+
+.navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-nav {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    float: left;
+}
+
+.navbar-nav > li {
+    float: left;
+}
+
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-default {
+    border-top-color: #e7e7e7;
+    border-right-color: #e7e7e7;
+    border-bottom-color: #e7e7e7;
+    border-left-color: #e7e7e7;
+    background-color: rgb(248, 248, 248);
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #777;
+}
+
+.navbar-default .navbar-toggle {
+    border-top-color: #ddd;
+    border-right-color: #ddd;
+    border-bottom-color: #ddd;
+    border-left-color: #ddd;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-top-color: #e6e6e6;
+    border-right-color: #e6e6e6;
+    border-bottom-color: #e6e6e6;
+    border-left-color: #e6e6e6;
+}
+
+#s4-workspace {
+    overflow: auto;
+    position: relative;
+}
+
+#GovXNav {
+    height: 38px;
+}
+
+.topLine {
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+}
+
+.bootstrap3 .row {
+    margin-left: 0px !important;
+}
+
+#topnavbar .navbar-inner > div {
+    border-top-color: #4ec9e8;
+    border-top-width: 3px;
+    border-top-style: solid;
+}
+/*#endregion HEADER*/
+
+/*#region FOOTER*/
+#footer ul {
+    text-align: center;
+    padding-right: 0px;
+    margin-bottom: 0px;
+}
+
+#govILFooter {
+    height: 18px;
+}
+
+#govILFooter a {
+    margin-top: -7px;
+    display: inline-block;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+#footer > div {
+    padding-top: 11px;
+    padding-bottom: 4px;
+    background-color: rgb(199, 213, 214);
+}
+
+#footer li {
+    border-left-style: solid;
+    margin-bottom: 7px;
+    border-left-color: #000000;
+    border-left-width: 1px;
+    display: inline-block;
+    font-weight: 600;
+    padding-left: 8px;
+    padding-right: 4px;
+}
+
+#s4-bodyContainer {
+    width: auto !important;
+    padding-bottom: 0px;
+    padding-top: 20px;
+}
+
+.healthContainer {
+    display: inline;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    box-shadow: 0px 9px 0px 0px white, 0px -9px 0px 0px white, 12px 0px 15px -4px rgba(237, 237, 237, 0.8),
+        -12px 0px 15px -4px rgba(237, 237, 237, 0.8);
+}
+
+div,
+span,
+a,
+input,
+p,
+li {
+    color: #252525 !important;
+    font-family: "Open Sans Hebrew" !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+}
+/*#endregion FOOTER*/
+
+/*#region NEW*/
+body {
+    overflow: auto !important;
+    position: relative !important;
+    padding-top: 160px !important;
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+/*#endregion NEW*/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .first-section {
+    padding: 15px 13px 10px 13px;
+}
+
+.header .first-section .right {
+    float: right;
+    margin-top: 8px;
+}
+
+.header .first-section .left {
+}
+
+.header .second-section .title {
+    border-top: #4ec9e8 3px solid;
+    height: 58px;
+    background-color: #edeeef;
+    padding-right: 78px;
+    padding-top: 10px;
+}
+
+.header .second-section a,
+.header .second-section a span {
+    font-size: 26px !important;
+    color: #252525 !important;
+    font-weight: 400;
+}
+
+.header .second-section .menu {
+    position: relative;
+}
+
+.header .second-section .menu .navBtnText {
+    color: #ffffff !important;
+    font-size: 12px !important;
+}
+
+.header .second-section .menu .openMenuBtn {
+    background-color: #3c3d4d;
+    padding: 10px 10px 5px 10px;
+    float: right;
+    margin-top: 3px;
+}
+
+.header .second-section .menu .openMenuBtn .openMenuBtnImg {
+    width: 30px;
+    height: 18px;
+    display: inline-block;
+    background-image: url("https://data.health.gov.il/drugs/assets/images/header/hamburger.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header .second-section .menu .list {
+    background-color: #3c3d4d;
+    display: none;
+    position: absolute;
+    top: 0;
+    min-width: 416px;
+    z-index: 1000;
+}
+
+.header .second-section .menu .list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header .second-section .menu .list ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header .second-section .menu .list ul li:not(:last-child) {
+    border-bottom: #7e7d87 1px solid;
+}
+
+.header .second-section .menu .list li .closeMenuBtn {
+    background-color: #30313e;
+    width: 55px;
+    height: 55px;
+}
+
+.header .second-section .menu .list li .closeMenuBtn .closeMenuText {
+    color: #ffffff !important;
+    font-size: 12px;
+}
+
+.header .second-section .menu .list ul li a {
+    display: block;
+    color: #fff !important;
+    font-family: "Open Sans Hebrew" !important;
+    padding: 17px 20px;
+    font-size: 18px !important;
+}
+
+.header .second-section .menu .list ul li a:hover {
+    color: #4ec9e8 !important;
+}
+
+.header .second-section .menu .list ul li.submenu {
+}
+
+.header .second-section .menu .list ul li.submenu > a {
+    background-image: url(https://data.health.gov.il/drugs/assets/images/header/down.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 26px;
+}
+
+.header .second-section .menu .list ul li.submenu.in > a {
+    background-image: url(https://data.health.gov.il/drugs/assets/images/header/up.png);
+}
+
+.header .second-section .menu .list ul li.submenu ul {
+    background-color: #474958;
+}
+
+.header .second-section .menu .list ul ul {
+    display: none;
+}
+
+.header .second-section .menu .list ul ul li {
+}
+
+.header .second-section .menu .list ul ul li a {
+}
+
+.header .third-section {
+    background-color: rgb(78, 201, 232);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.header .third-section .links {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header .third-section .links a {
+    color: #01476b !important;
+    font-weight: 600;
+    display: none;
+}
+
+.header .third-section .links a:not(:last-child) {
+    margin-left: 30px;
+}
+
+.header-list-top {
+    align-items: center;
+    margin-top: 70px;
+    align-items: center;
+    text-align: center;
+}
+
+.header .header-list-top > div {
+    text-align: center;
+}
+
+.header .third-section ul.links li {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header .header-list-top > div a {
+    padding: 14px 30px 13px 30px;
+    background-color: #3c3e4d;
+    color: white !important;
+    margin-left: -2px;
+    font-size: 17px !important;
+    display: inline-block;
+    position: relative;
+}
+
+.header .header-list-top > div a.active {
+    background-color: rgb(78, 201, 232);
+    color: #01476b !important;
+    outline: none;
+}
+
+.header .header-list-top > div a.active::after {
+    top: 54px;
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 22px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(78, 201, 232);
+    display: block;
+    margin: 0 auto;
+}
+
+.header .header-list-top > div span {
+    font-size: 17px !important;
+    margin-right: 14px;
+}
+
+.header .header-list-top > div button {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.header .header-list-top > div button span img {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+#footer .first-row-footer {
+    background-color: #d8e6e7 !important;
+}
+
+#footer .second-row-footer {
+    background-color: #c7d5d6 !important;
+    padding-top: 14px;
+    padding-bottom: 6px;
+}
+
+#footer .third-row-footer {
+    background-color: #becaca !important;
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
+#footer .last-li-item,
+#footer .first-row-footer li {
+    border-left-color: currentColor !important;
+    border-left-width: 0px !important;
+    border-left-style: none !important;
+}
+
+#footer .first-row-footer li {
+    margin-bottom: 50px !important;
+}
+
+#footer .first-row-footer h4 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.header .header-list-top .divide-line {
+    border: 1px solid #e6e5e5;
+    height: 45px;
+    display: inline-block;
+    margin-right: 14px;
+    margin-left: 10px;
+    margin-bottom: -15px;
+}
+
+@media only screen and (max-width: 687px) {
+    #footer {
+        position: static;
+        bottom: 0;
+    }
+    #s4-bodyContainer {
+        padding-top: 0;
+    }
+    ui-view,
+    .mobileHeight {
+        padding-bottom: 0;
+    }
+
+    .button-text-search {
+        display: none;
+    }
+
+    .second-section {
+        margin-top: -4px;
+    }
+
+    .header .header-list-top > div a {
+        font-size: 12px !important;
+        padding: 9px 10px 9px 10px;
+        margin-left: -2px;
+    }
+
+    .header .header-list-top > div a.active::after {
+        top: 37px;
+    }
+
+    .header .header-list-top .divide-line {
+        height: 38px;
+    }
+
+    .header .second-section .title {
+        height: 46px;
+        padding: 7px 62px 0px 0px;
+    }
+
+    .header .second-section a,
+    .header .second-section a span,
+    .header .title .first-part-title {
+        font-size: 20px !important;
+    }
+
+    .header .second-section .menu .navBtnText {
+        display: none;
+    }
+
+    .header .second-section .menu .openMenuBtn {
+        padding: 10px;
+    }
+
+    .header .first-section {
+        padding-top: 4px;
+    }
+
+    .header .first-section .right img.logo-idr {
+        width: 49%;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .first-row-footer h4 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 362px) {
+    .header .header-list-top .divide-line {
+        display: none;
+    }
+
+    .header .header-list-top button {
+        display: none;
+    }
+
+    .header .header-list-top > div a.active::after {
+        top: 34px;
+    }
+}
+
+/***********************************/
+
+.display-wrapper ui-view .view-generic-container-wrapper .view-generic-container {
+    width: 62.11%;
+    max-width: 850px;
+    min-width: 562px;
+    margin: 0px auto;
+    padding-bottom: 68px;
+}
+
+.display-wrapper ui-view .view-generic-container-wrapper .view-generic-container .search-textbox-container {
+    /*width: 60%;*/
+    width: 100%;
+    margin-left: 0;
+    float: right;
+    padding-left: 9px;
+}
+
+.display-wrapper ui-view .view-generic-container-wrapper .view-generic-container .drop-down-container {
+    width: 40%;
+    float: right;
+}
+
+.view-generic-container .drop-down-container idr-drop-down-list .dropdown-container {
+    display: inline;
+}
+
+.view-generic-container .drop-down-container idr-drop-down-list {
+    float: right;
+    width: calc(100% - 2px - 40px);
+}
+
+.view-generic-container .drop-down-container .search-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    margin-right: 1px;
+}
+
+.view-generic-container .search-section .compareAndSortBarWrap {
+    height: 60px !important;
+}
+
+.view-generic-container .drop-down-container .search-button .img-search {
+    background-image: url(https://data.health.gov.il/drugs/assets/images/cuts/app/search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-size: 63%;
+}
+
+.search-section .result .infoText {
+    height: 223px;
+}
+
+.search-section .resultSelected {
+    background: #d5e8e1 !important;
+}
+
+.search-section .result {
+    height: 179px;
+}
+
+.compareWrap .titlesWrap {
+    position: absolute;
+    top: 285px;
+    right: 0;
+    z-index: 2;
+    overflow: visible;
+}
+
+@media screen and (min-width: 562px) {
+    .view-by-symptom-container .drop-downs-container .sub-drop-down {
+        width: calc(100% - 40px) !important;
+    }
+}
+
+.search-section .result .infoText .topAndBottom .topDetails .secondRowTitle.moreInfo {
+    font-weight: normal;
+}
+
+.compareWrap .titlesWrap {
+    top: 165px !important;
+}
+
+.hidden-pc {
+    display: none;
+}
+
+.hidden-xs {
+    display: block;
+}
+
+.boxStyle .boxTitle > span {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 15px !important;
+}
+
+.search-section .result {
+    background-color: white;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.cancel-drag-link {
+    display: inline-block;
+    float: left;
+    line-height: 50px;
+}
+
+.cancel-drag-link > a {
+    text-decoration: underline !important;
+}
+
+.videoWrap {
+    width: 50%;
+    padding: 10px;
+    float: right;
+    margin: 0;
+}
+
+.videoWrap iframe {
+    width: 100%;
+    height: 211px;
+}
+
+.generic-search {
+    display: inline;
+    position: absolute;
+    bottom: 38px;
+    left: 16px;
+}
+
+.midDetails {
+    position: relative;
+    bottom: -17px;
+    font-weight: normal !important;
+}
+
+.pop-up-error-show {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    position: fixed;
+}
+
+.view-cytotoxic-container .checkbox-container .checkbox-text {
+    width: 180px;
+}
+
+.label-multi-language {
+    float: right !important;
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton {
+    width: 112px;
+    height: 43px;
+    position: absolute;
+    text-align: center;
+    bottom: 9px;
+    right: 15px;
+    font-family: "Open Sans Hebrew";
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton .compareButtonContent {
+    position: relative;
+    padding: 0 9px;
+    height: 43px;
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton .compareButtonContent .compareButtonText {
+    display: inline-block;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 43px;
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton .compareButtonContent .compareButtonImg {
+    float: left;
+    width: 30px;
+    height: 43px;
+    line-height: 43px;
+    display: inline-block;
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton.compareEnabled {
+    color: white;
+}
+
+.search-section .compareAndSortBarWrap .compareAndSortBar .compareButton.compareDisabled {
+    color: #7a7a7a;
+}
+
+.dosage-warning {
+    padding-right: 10px;
+    padding-bottom: 30px;
+}
+
+.dosage-warning > span {
+    float: right;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    color: #fff !important;
+    cursor: pointer;
+    background-color: #145e6f;
+    border-color: #145e6f;
+}
+
+.pagination :not(.disabled) a,
+.pagination :not(.disabled) a:focus,
+.pagination :not(.disabled) a:hover {
+    cursor: pointer;
+}
+
+.pagination > .disabled > a,
+.pagination > .disabled > a:focus,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > span,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > span:hover {
+    background-color: #eee;
+}
+
+.pagination {
+    padding: 0;
+}
+
+.pagination .pagination-edge {
+    padding: 6px;
+}
+
+.search-section .result .priceContainer .arrowButton {
+    display: none !important;
+}
+
+.search-section .result .priceContainer .drugMoreDetails {
+    text-decoration: underline !important;
+}
+
+.medBody .info-pop-up-container {
+    display: inline-block;
+}
+
+#footer .disclaimer {
+    text-align: center;
+    padding: 10px 0 !important;
+    background-color: #edeeef;
+}
+#footer .seperator {
+    background-color: rgb(217, 230, 231);
+    height: 30px;
+}
+.footer-wrapper {
+    margin-top: 30px;
+}
+
+@media print {
+    body {
+        padding: 0 !important;
+    }
+    .header {
+        position: static;
+    }
+    .hidden-print {
+        display: none;
+    }
+    .boxStyle {
+        margin-top: 20px;
+    }
+    .boxStyle .box {
+        height: auto !important;
+    }
+    .boxStyle .boxTitle {
+        background-color: #5ca2aa !important;
+        clear: both;
+        padding: 10px !important;
+    }
+    .boxStyle .boxTitle .arrowDown {
+        display: none;
+    }
+    .medBody .medTitles > div {
+        font-size: 23px !important;
+        font-weight: 900 !important;
+        color: #4e7c82 !important;
+        padding-bottom: 10px;
+    }
+    a[href]:after {
+        display: none;
+    }
+    #footer {
+        position: static;
+    }
+    .footer-wrapper {
+        margin-top: 0;
+    }
+    .ui-view,
+    .mobileHeight {
+        padding-bottom: 0;
+    }
+    .spacer {
+        display: none;
+    }
+}
+
+.table th,
+.table td {
+    text-align: right;
+}
+.table.registered_indications {
+    width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.search-button-container button {
+    color: #fff;
+    padding: 10px 40px;
+}
+.search-button-container a {
+    padding: 10px 0;
+    margin: 0 25px 0 0;
+    text-decoration: underline !important;
+}
+
+.dragIndication {
+    line-height: 25px;
+    text-align: left;
+    direction: ltr;
+    width: 100% !important;
+    float: none !important;
+    padding: 10px;
+    font-weight: normal !important;
+}
+
+.nav-top {
+    background: #4ec9e8 url(https://data.health.gov.il/drugs/assets/images/arrowWhite.svg) no-repeat 50% 50%;
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    transform: translate(0, -50%) rotate(-180deg);
+    display: block;
+    bottom: 85px;
+}
+.medPageDetails .print {
+    float: left;
+    display: block;
+    padding: 10px 30px;
+    color: white !important;
+    margin-top: -12px;
 }

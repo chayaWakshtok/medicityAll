@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>בתי מרקחת עם התרופה במלאי</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list dir="rtl">
+    <ion-item *ngFor="let item of pharmacies">
+      <ion-label style="padding-right: 12px;" text-wrap>
+        {{ item.name }} - {{item.address}} {{item.numHouse}} {{item.city.name}}
+      </ion-label>
+      <!-- <ion-icon name="create" color="secondary" item-right (click)="detail(item.dragRegNum,$event)"></ion-icon> -->
+    </ion-item>
+  </ion-list>
+</ion-content>

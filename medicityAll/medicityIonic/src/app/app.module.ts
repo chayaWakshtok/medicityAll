@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MedicalService } from './shared/services/medical.service';
+import { HttpConfigInterceptor } from './shared/services/httpConfig.interceptor';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,13 @@ import { MedicalService } from './shared/services/medical.service';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    Geolocation,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

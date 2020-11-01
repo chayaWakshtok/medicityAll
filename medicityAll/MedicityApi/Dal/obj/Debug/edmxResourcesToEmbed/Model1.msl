@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="medicityDBModelStoreContainer" CdmEntityContainer="medicityDBEntities">
+    <EntitySetMapping Name="BusinessHours">
+      <EntityTypeMapping TypeName="medicityDBModel.BusinessHour">
+        <MappingFragment StoreEntitySet="BusinessHours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumDay" ColumnName="NumDay" />
+          <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+          <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+          <ScalarProperty Name="PharmacyId" ColumnName="PharmacyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="medicityDBModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="medicityDBModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+          <ScalarProperty Name="Alert" ColumnName="Alert" />
+          <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicals">
+      <EntityTypeMapping TypeName="medicityDBModel.Medical">
+        <MappingFragment StoreEntitySet="Medical">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pharmacies">
+      <EntityTypeMapping TypeName="medicityDBModel.Pharmacy">
+        <MappingFragment StoreEntitySet="Pharmacy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NumHouse" ColumnName="NumHouse" />
+          <ScalarProperty Name="Lng" ColumnName="Lng" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Star" ColumnName="Star" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockPharmacies">
+      <EntityTypeMapping TypeName="medicityDBModel.StockPharmacy">
+        <MappingFragment StoreEntitySet="StockPharmacy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPharmacy" ColumnName="IdPharmacy" />
+          <ScalarProperty Name="IdMedical" ColumnName="IdMedical" />
+          <ScalarProperty Name="Quentity" ColumnName="Quentity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="medicityDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="medicityDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+          <ScalarProperty Name="Permision" ColumnName="Permision" />
+          <ScalarProperty Name="PharmacyId" ColumnName="PharmacyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
