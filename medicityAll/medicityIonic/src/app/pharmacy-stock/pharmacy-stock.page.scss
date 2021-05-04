@@ -1,0 +1,606 @@
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+.disclaimer {
+    margin-top: 11vh;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.medTitles > div {
+    font-size: 21px !important;
+    font-weight: 900;
+    color: #4e7c82 !important;
+    text-align: center;
+}
+.boxStyle {
+    margin-bottom: 20px;
+    margin-top: 0;
+    background: linear-gradient(to right, #5ca2aa, #68b6aa);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.boxStyle .boxTitle {
+    height: 55px;
+    background-color: rgba(255, 255, 255, 0.33);
+    color: white;
+    font-size: 20px;
+    line-height: 55px;
+    position: relative;
+}
+
+.boxStyle .boxTitle .arrowDown {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%) rotate(0);
+    -moz-transform: translate(0, -50%) rotate(0);
+    -ms-transform: translate(0, -50%) rotate(0);
+    -o-transform: translate(0, -50%) rotate(0);
+    transform: translate(0, -50%) rotate(0);
+    transition: all 0.4s;
+    outline: 0;
+}
+
+.boxStyle .boxTitle .rotateArrow {
+    transition: all 0.4s;
+    -webkit-transform: translate(0, -50%) rotate(-180deg);
+    -moz-transform: translate(0, -50%) rotate(-180deg);
+    -ms-transform: translate(0, -50%) rotate(-180deg);
+    -o-transform: translate(0, -50%) rotate(-180deg);
+    transform: translate(0, -50%) rotate(-180deg);
+}
+
+.boxStyle .boxTitle > img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.boxStyle .box {
+    background-color: #dfeae5;
+    height: 0;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.boxStyle .showBox {
+    transition: all 0.4s;
+    height: auto;
+}
+
+.textStyle {
+    padding: 0;
+    white-space: normal;
+    text-indent: 0;
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.textStyle > div:first-child {
+    font-size: 15px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.textStyle > div:first-child {
+    font-family: "Open Sans Hebrew", serif;
+    width: 30%;
+    font-size: 16px;
+    float: right;
+}
+
+.textStyle > div:last-child {
+    color: grey;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+.textStyle > div {
+    display: inline-block;
+}
+
+.termsShow {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 90%;
+    left: 50%;
+    margin-left: -45%;
+    background-color: white;
+    z-index: 5;
+}
+
+.termsShow p {
+    padding: 15px;
+}
+
+.termsShow button {
+    background: #6fb9e0;
+    // background: -moz-linear-gradient(top, #6fb9e0 0, #179ace 100%);
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+    // background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    background: linear-gradient(to bottom, #6fb9e0 0%, #179ace 100%);
+    color: white;
+    width: 69px;
+    height: 32px;
+    position: absolute;
+    font-size: 16px;
+    left: 6px;
+    bottom: 10px;
+    font-family: "Open Sans Hebrew", serif;
+}
+
+.termsShow button:active {
+    opacity: 0.7;
+}
+
+.hide-terms {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: black;
+    color: white !important;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.bgCover {
+    position: absolute;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 4;
+}
+label.checkbox-text {
+    margin: 15px 0;
+}
+
+label.checkbox-text.black:before {
+    border: solid #959595 1px;
+    box-shadow: none;
+    height: 15px;
+    width: 15px;
+}
+
+.checkbox-container label:before {
+    box-shadow: none;
+    margin-left: 2px;
+    border: solid #959595 1px;
+    font-size: 18px;
+    line-height: 18px;
+    height: 18px;
+    width: 18px;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label:before {
+    border: solid #959595 1px;
+}
+
+.checkbox {
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px;
+    display: inline;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox input[type="checkbox"]:checked + label:before {
+    line-height: 18px;
+    box-shadow: none;
+    border: 2px solid #157ca7;
+}
+
+.checkbox label {
+    padding-left: 0;
+    /*display: none; */
+}
+
+.checkbox label:before {
+    margin-left: 0;
+    border: 2px solid #6fbae4;
+    box-shadow: inset 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.lngString {
+    padding-left: 2%;
+}
+
+.contactLineLn {
+    padding-right: 10%;
+}
+
+.medDeatailsActiveMetirals {
+    direction: ltr;
+    text-align: left;
+}
+
+.infoPage {
+    overflow-y: scroll;
+}
+.textStyle {
+    height: auto;
+    line-height: 36px;
+    text-indent: 0;
+}
+
+.textStyle > div:first-child {
+    font-family: "Open Sans Hebrew", serif;
+    font-size: 16px;
+}
+
+.textStyle > div:last-child,
+.textStyle > div:last-child > a,
+.textStyle > div:last-child > div > span,
+.textStyle > div li,
+.textStyle > div:nth-child(2),
+.textStyle > div:nth-child(2) > span {
+    color: #49829a !important;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.textStyle > div {
+    display: inline-block;
+}
+
+ui-view,
+.mobileHeight {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+/*ui-view.drugSearchResults {
+          height: 100vh;
+          overflow-y: auto;
+          position: relative;
+      }*/
+.medPageDetails {
+    overflow: hidden !important;
+}
+
+.quickSearchWrapper {
+    height: 100%;
+}
+
+ui-view,
+.mobileHeightSmartSearch {
+    display: block;
+}
+
+.medPageDetails {
+    overflow-y: scroll;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.medPageDetails .breadCrumb {
+    color: white;
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+.medPageDetails .breadCrumb > .constSpan {
+    text-decoration: underline;
+}
+
+.medPageDetails .medTitles {
+    color: white;
+}
+
+.medPageDetails .medTitles > div:first-child {
+    font-family: "Open Sans Hebrew", serif;
+    font-size: 28px;
+}
+
+.medPageDetails .medTitles > div:last-child {
+    font-size: 18px;
+}
+
+.medPageDetails .mainBoxMed {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin-top: 10px;
+    min-height: 250px;
+    overflow-x: hidden;
+}
+
+.medPageDetails .mainBoxMed .medText {
+    width: 60%;
+    height: 100%;
+    display: block;
+    min-width: 304px;
+}
+
+.medPageDetails .mainBoxMed .medText > div {
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureDownload {
+    font-family: "Open Sans Hebrew", serif;
+    margin-left: 32px;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtnsWrap {
+    padding-left: 24.5%;
+    float: left;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtns {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    background: #6fb9e0;
+    // background: -moz-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+    // background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    background: linear-gradient(to bottom, #6fb9e0 0%, #179ace 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fb9e0', endColorstr='#179ace', GradientType=0);
+    height: 35px;
+    line-height: 35px;
+    margin-right: 15px;
+    color: white;
+    font-size: 16px;
+    font-family: "Open Sans Hebrew", serif;
+    outline: 0;
+}
+
+.medPageDetails .mainBoxMed .medText .catBtns:hover,
+.medPageDetails .mainBoxMed .medText .brochureBtns:hover {
+    opacity: 0.8;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureBtns {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    background: #6fb9e0;
+    // background: -moz-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+    // background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -o-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    background: linear-gradient(to bottom, #6fb9e0 0%, #179ace 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fb9e0', endColorstr='#179ace', GradientType=0);
+    height: 35px;
+    line-height: 35px;
+    margin-right: 15px;
+    color: white;
+    font-size: 16px;
+    font-family: "Open Sans Hebrew", serif;
+    outline: 0;
+    width: 150px;
+}
+
+.medPageDetails .mainBoxMed .medText .brochureBtns img {
+    margin-right: 10px;
+}
+
+.medPageDetails .mainBoxMed .medText .isPrescription {
+    color: #696969;
+}
+
+.medPageDetails .mainBoxMed .medText .iscanceled {
+    color: #f3922c;
+}
+
+.medPageDetails .mainBoxMed .medImg {
+    width: 39%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: 10px;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel {
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    left: 12%;
+    box-shadow: 0 12px 14px -10px #5e5e5e;
+}
+
+.medPageDetails .mainBoxMed .medImg .text-center {
+    height: 100%;
+    width: 250px;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-inner {
+    height: 100%;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-inner img {
+    height: 100%;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators {
+    bottom: -45px;
+    padding: 0;
+    width: 100%;
+    margin-left: 0;
+    left: 0;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators .active {
+    background-color: #179ace;
+    box-shadow: 0 2px 7px 0px #a09c9c;
+}
+
+.medPageDetails .mainBoxMed .medImg .carousel-indicators li {
+    background-color: #414141;
+    border: 0;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px !important;
+    outline: 0;
+}
+
+.medPageDetails .mainBoxMed .medImg .left.carousel-control,
+.medPageDetails .mainBoxMed .medImg .right.carousel-control {
+    position: absolute;
+    height: 50px;
+    top: 160px;
+    z-index: 99;
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-right:before {
+    content: "";
+}
+
+.medPageDetails .mainBoxMed .medImg .glyphicon-chevron-left:before {
+    content: "";
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next,
+.carousel-control .icon-prev {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    font-size: 30px;
+}
+
+.divider {
+    width: 97%;
+    height: 1px;
+    background-color: #64ada5;
+    margin: auto;
+    z-index: 999;
+}
+
+.paginationSearch {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    direction: ltr;
+}
+
+.paginationSearch > span {
+    padding: 0 5px;
+    height: 25px;
+    display: inline-block;
+    direction: inherit;
+}
+
+.paginationSearch .selectPage {
+    color: #145e6f !important;
+}
+
+.errorHandler {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // -webkit-transform: translate(0, -50%);
+    background-color: white;
+    text-align: center;
+    min-height: 100px;
+    z-index: 10;
+}
+
+.errorHandler > div:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.errorHandler > div:nth-child(2) {
+    font-size: 16px;
+}
+
+.errorHandler button {
+    width: 60%;
+    height: 35px;
+    color: white;
+    margin: 10px 0;
+    background: #6fb9e0;
+    // background: -moz-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6fb9e0), color-stop(100%, #179ace));
+    // background: -webkit-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -o- linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    // background: -ms-linear-gradient(top, #6fb9e0 0%, #179ace 100%);
+    background: linear-gradient(to bottom, #6fb9e0 0%, #179ace 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fb9e0', endColorstr='#179ace', GradientType=0);
+}
+
+.errorHandler .exitPop {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    color: white !important;
+    border-radius: 50%;
+    line-height: 25px;
+}
+
+.bgShadow {
+    background-color: black;
+    z-index: 8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+}
+
+.dropdown-menu > li > a {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.orientationView {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 99999999;
+}
+
+.landscapeIcon {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    //-webkit-transform: translate(0, -50%);
+}
+ion-icon {
+    width: 4em;
+    height: 2em;
+}

@@ -5,12 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-list dir="rtl">
+  <!-- <ion-list dir="rtl">
     <ion-item *ngFor="let item of pharmacies">
       <ion-label style="padding-right: 12px;" text-wrap>
-        {{ item.name }} - {{item.address}} {{item.numHouse}} {{item.city.name}}
+        {{ item.name }} - {{item.address}} {{item.numHouse}} {{item.city.name}}<br>
+        {{(item.far/1000).toFixed(2)}} קילומטר ממקומך
       </ion-label>
-      <!-- <ion-icon name="create" color="secondary" item-right (click)="detail(item.dragRegNum,$event)"></ion-icon> -->
+      <ion-icon *ngIf="!showBox" name="arrow-down" color="secondary" (click)="showBox?showBox = false:showBox = true" item-right></ion-icon>
+      <ion-icon *ngIf="showBox" name="arrow-up" color="secondary" (click)="showBox?showBox = false:showBox = true" item-right></ion-icon>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+
+  <div class="boxStyle" *ngFor="let item of pharmacies" style="margin-top: 15px;">
+    <app-stock [item]="item"></app-stock>
+  </div>
+
+
 </ion-content>

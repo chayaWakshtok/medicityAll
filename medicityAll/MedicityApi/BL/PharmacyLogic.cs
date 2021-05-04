@@ -43,6 +43,7 @@ namespace BL
                 var locA = new GeoCoordinate(lat, lng);
                 var locB = new GeoCoordinate(latB, longB);
                 double distance = locA.GetDistanceTo(locB);
+                item.Far = distance;
                
                 if (distance < 120000 && medicine!=null&&stock.Quentity>0)
                     nearList.Add(item);

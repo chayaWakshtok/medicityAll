@@ -13,6 +13,7 @@ export class Pharmacy{
     imageUrl:string;
     star:number;
     stockPharmacies:StockPharmacy[]=[];
+    far:number;
     // public  List<BusinessHourDto> BusinessHours { get; set; }
     city:City;
 }

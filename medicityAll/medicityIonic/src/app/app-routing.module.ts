@@ -18,7 +18,15 @@ const routes: Routes = [
   {
     path: 'pharmacy-stock/:code',
     loadChildren: () => import('./pharmacy-stock/pharmacy-stock.module').then( m => m.PharmacyStockPageModule)
+  },  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
+  {
+    path: 'detail-stock',
+    loadChildren: () => import('./detail-stock/detail-stock.module').then( m => m.DetailStockPageModule)
+  },
+
 
 
 ];

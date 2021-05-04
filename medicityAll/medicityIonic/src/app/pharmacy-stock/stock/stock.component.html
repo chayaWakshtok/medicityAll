@@ -1,0 +1,45 @@
+<div role="button" tabindex="0" class="boxTitle" style="line-height: 10px;"><img
+    src="https://data.health.gov.il/drugs/assets/images/drugs/general_Feature_icon.png" class="boxImgStyle">
+  <span style="line-height: 10px;"> {{ item.name }} - {{item.city.name}} </span>
+  <p style="margin-right: 14vw;">{{(item.far/1000).toFixed(2)}} קילומטר ממקומך</p>
+  <img src="https://data.health.gov.il/drugs/assets/images/arrowWhite.svg" [ngClass]="{'rotateArrow':showBox == true}"
+    (click)="showBox?showBox = false:showBox = true" style="position: relative;top: -30px;right: 76vw;">
+</div>
+<div class="box" *ngIf="showBox == true" [ngClass]="{'showBox':showBox == true}" style="background-color: #dfeae5;">
+  <div ng-if="type == 'general'" class="ng-scope">
+    <div class="textStyle ng-scope">
+      <div style="direction: rtl;" class="ng-binding">
+        <!-- <header style="color:black">פרטים:</header> -->
+        <!-- <p style="color: #49829a !important;">שעות פתיחה:<br>
+        <p>  יום א: 10:00-22:00 <br>
+          יום ב: 10:00-22:00 <br>
+          יום ג: 10:00-22:00 <br>
+          יום ד: 10:00-22:00 <br>
+          יום ה: 10:00-22:00 <br>
+          יום ו: 10:00-12:00 <br>
+        </p> -->
+        <header style="color: #49829a">
+          <br>כתובת: {{item.address}} {{item.numHouse}} {{item.city.name}}
+        </header>
+        <hr>
+        <ion-grid>
+          <ion-row>
+            <ion-col (click)="map()">
+              <ion-icon name="locate-outline"></ion-icon>
+              <span style="font-size: 13px !important;"> נווט לכתובת</span>
+            </ion-col>
+            <ion-col (click)="call()">
+              <ion-icon name="call-outline"></ion-icon>
+              <span style="font-size: 12px !important;"> התקשר עכשיו</span>
+            </ion-col>
+            <ion-col (click)="details()">
+              <ion-icon name="information-outline"></ion-icon>
+              <span style="font-size: 12px !important;"> לפרטים נוספים</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+  </div>
+</div>

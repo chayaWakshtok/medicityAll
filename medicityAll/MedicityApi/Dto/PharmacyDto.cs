@@ -20,6 +20,7 @@ namespace Dto
         public decimal Lat { get; set; }
         public string ImageUrl { get; set; }
         public int Star { get; set; }
+        public double Far { get; set; }
 
         public  List<BusinessHourDto> BusinessHours { get; set; }
         public  CityDto City { get; set; }

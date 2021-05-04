@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dto.BusinessHourDto">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIBAAAAA=</HashCode>
+      <FileName>BusinessHourDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.CityDto">
+    <Position X="8" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CityDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.HistoryDto">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAI=</HashCode>
+      <FileName>HistoryDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.MedicalDto">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MedicalDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.PharmacyDto">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACQAABgCAgQAAIgAAAAAQAAAAAABACgIAAAAAAAAA=</HashCode>
+      <FileName>PharmacyDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.StockPharmacyDto">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>StockPharmacyDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.UserDto">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIACAAAAAAAAAAAAAgAAAAQAAAAAAAACAAABAAAAAAA=</HashCode>
+      <FileName>UserDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

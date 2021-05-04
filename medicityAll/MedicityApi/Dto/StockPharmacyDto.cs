@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-   public class StockPharmacyDto
+    public class StockPharmacyDto
     {
         public int Id { get; set; }
         public int IdPharmacy { get; set; }

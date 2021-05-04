@@ -9,6 +9,7 @@ import { Pharmacy } from '../shared/modals/pharmacy';
 })
 export class PharmacyStockPage implements OnInit {
 
+  showBox:boolean=false;
   pharmacies:Pharmacy[]=[];
   constructor(public pharmacyService:PharmacyService) { }
 

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MedicalService } from './shared/services/medical.service';
 import { HttpConfigInterceptor } from './shared/services/httpConfig.interceptor';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,12 +23,14 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    CallNumber,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
